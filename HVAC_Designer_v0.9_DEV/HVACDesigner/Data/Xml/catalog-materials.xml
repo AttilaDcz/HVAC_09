@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringData Id="Catalog.Materials" Version="1.0" SchemaVersion="1.0" DataType="Catalog" Country="HU" DisplayName="Építőanyag-katalógus" ValidFrom="2026-01-01">
+  <Dependencies />
+  <Materials>
+    <Category Name="Vakolatok és habarcsok">
+      <Material Id="CementRender" DisplayName="Cementvakolat" Lambda="1.000" Density="1800" SpecificHeat="1000" Mu="10" LambdaCorrection="1.00" />
+      <Material Id="LimeSandRender" DisplayName="Mészhomok vakolat" Lambda="0.800" Density="1600" SpecificHeat="1000" Mu="10" LambdaCorrection="1.00" />
+      <Material Id="GypsumRender" DisplayName="Gipszvakolat (belső gépi)" Lambda="0.570" Density="1300" SpecificHeat="1000" Mu="10" LambdaCorrection="1.00" />
+      <Material Id="NobleRender" DisplayName="Nemes vakolat (külső homlokzati)" Lambda="0.990" Density="1850" SpecificHeat="880" Mu="15" LambdaCorrection="1.00" />
+    </Category>
+
+    <Category Name="Betonok és esztrichek">
+      <Material Id="ReinforcedConcrete" DisplayName="Vasbeton (szerkezeti, 1% acél)" Lambda="2.300" Density="2300" SpecificHeat="1000" Mu="130" LambdaCorrection="1.00" />
+      <Material Id="Concrete" DisplayName="Kavicsbeton (aljzatbeton, esztrich)" Lambda="1.280" Density="2200" SpecificHeat="840" Mu="100" LambdaCorrection="1.00" />
+      <Material Id="LightConcrete" DisplayName="Könnyűbeton (polisztirolbeton feltöltés)" Lambda="0.081" Density="300" SpecificHeat="840" Mu="14" LambdaCorrection="1.00" />
+      <Material Id="CementScreed" DisplayName="Cementesztrich" Lambda="1.400" Density="2000" SpecificHeat="1000" Mu="10" LambdaCorrection="1.00" />
+    </Category>
+
+    <Category Name="Falazatok és szerkezeti anyagok">
+      <Material Id="CeramicBlock" DisplayName="Korszerű vázkerámia falazat (Porotherm + habarcs)" Lambda="0.160" Density="800" SpecificHeat="1000" Mu="10" LambdaCorrection="1.05" />
+      <Material Id="AAC" DisplayName="Pórusbeton falazat (Ytong + vékonyágyas habarcs)" Lambda="0.120" Density="450" SpecificHeat="1000" Mu="10" LambdaCorrection="1.05" />
+      <Material Id="SolidBrick" DisplayName="Kisméretű tömör agyagtégla falazat (mészhabarccsal)" Lambda="0.810" Density="1800" SpecificHeat="880" Mu="10" LambdaCorrection="1.00" />
+      <Material Id="B30Brick" DisplayName="B30-as blokktégla falazat" Lambda="0.570" Density="1100" SpecificHeat="880" Mu="10" LambdaCorrection="1.05" />
+      <Material Id="Loam" DisplayName="Vályogfal szerkezet (szalmás)" Lambda="0.700" Density="1600" SpecificHeat="1000" Mu="8" LambdaCorrection="1.10" />
+    </Category>
+
+    <Category Name="Faanyagok">
+      <Material Id="Softwood" DisplayName="Fenyő fűrészáru (szarufa, fagerenda)" Lambda="0.130" Density="500" SpecificHeat="1600" Mu="50" LambdaCorrection="1.00" />
+      <Material Id="Hardwood" DisplayName="Keményfa elemek (tölgy, bükk)" Lambda="0.180" Density="700" SpecificHeat="1600" Mu="200" LambdaCorrection="1.00" />
+    </Category>
+
+    <Category Name="Hőszigetelések">
+      <Material Id="EPS" DisplayName="EPS Homlokzati polisztirol (fehér)" Lambda="0.038" Density="15" SpecificHeat="1460" Mu="40" LambdaCorrection="1.00" />
+      <Material Id="EPSGrafit" DisplayName="Grafitos EPS homlokzati szigetelés" Lambda="0.031" Density="16" SpecificHeat="1460" Mu="40" LambdaCorrection="1.00" />
+      <Material Id="EPS100" DisplayName="EPS 100 Lépésálló polisztirol (talajon fekvő padlóba)" Lambda="0.037" Density="20" SpecificHeat="1460" Mu="70" LambdaCorrection="1.00" />
+      <Material Id="XPS" DisplayName="XPS Extrudált polisztirol (lábazati / kerületi szigetelés)" Lambda="0.033" Density="30" SpecificHeat="1400" Mu="100" LambdaCorrection="1.00" />
+      <Material Id="MineralWool" DisplayName="Kőzetgyapot hőszigetelő lemez (vakolható)" Lambda="0.035" Density="40" SpecificHeat="1000" Mu="1" LambdaCorrection="1.03" />
+      <Material Id="GlassWool" DisplayName="Ásványgyapot paplan (szarufák közé, tetőtérbe)" Lambda="0.042" Density="20" SpecificHeat="750" Mu="1" LambdaCorrection="1.05" />
+    </Category>
+
+    <Category Name="Burkolatok">
+      <Material Id="CeramicTile" DisplayName="Kerámiacsempe / greslap" Lambda="1.300" Density="2300" SpecificHeat="840" Mu="200" LambdaCorrection="1.00" />
+      <Material Id="Carpet" DisplayName="Padlószőnyeg" Lambda="0.060" Density="200" SpecificHeat="1300" Mu="5" LambdaCorrection="1.00" />
+      <Material Id="Laminate" DisplayName="Laminált parketta (alátéttel együtt)" Lambda="0.140" Density="800" SpecificHeat="1700" Mu="50" LambdaCorrection="1.00" />
+      <Material Id="GypsumBoard" DisplayName="Gipszkarton" Lambda="0.250" Density="800" SpecificHeat="1000" Mu="10" LambdaCorrection="1.00" />
+    </Category>
+
+    <Category Name="Szigetelő lemezek, fóliák">
+      <Material Id="BituminousSheet" DisplayName="Bitumenes nehézlemez (talajnedvesség ellen)" Lambda="0.230" Density="1100" SpecificHeat="1000" Mu="50000" LambdaCorrection="1.00" />
+      <Material Id="VaporBarrierPE" DisplayName="Párazáró PE fólia (belső oldali, tetőtérbe)" Lambda="0.330" Density="920" SpecificHeat="2200" Mu="100000" LambdaCorrection="1.00" />
+      <Material Id="VaporPermeableFoil" DisplayName="Páraáteresztő tetőfólia (szélzáró, külső oldali)" Lambda="0.170" Density="400" SpecificHeat="1300" Mu="5" LambdaCorrection="1.00" />
+    </Category>
+  </Materials>
+</EngineeringData>

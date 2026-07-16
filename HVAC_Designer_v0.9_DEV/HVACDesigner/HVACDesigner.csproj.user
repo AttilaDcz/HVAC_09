@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\attil\OneDrive\Asztali gép\Tervezés\ALAP\Programom\Ver_01\Ver_01\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="CoreUI\Components\Data\HVACDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Dialogs\EngineeringDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Dialogs\PdfExportOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Engineering\EngineeringUnitSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Help\EngineeringToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Structural\EngineeringCardPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Structural\HVACScrollableContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Structural\HVACSectionPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Structural\MenuSectionHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Components\Structural\MenuSubButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\ContentHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\HeaderHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\HostBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\NavigationHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\ProjectPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\StatusHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Layout\UnitSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Notifications\EngineeringNotificationHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Dashboard\DashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\EngineeringData\EngineeringDataSandboxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\FlueGas\FlueGasSandboxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Air\AirDuctsizeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Water\WaterDemandControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MenuSection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Air\AirVelocityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\BuildingThermal\UnitConverterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Air\DuctElementPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\Air\DuctNetworkPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CoreUI\Workspace\BuildingThermal\UValueCalculationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

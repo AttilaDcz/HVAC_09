@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">HVAC Designer dark theme SVG icon palette</title>
+  <desc id="desc">Duotone SVG icon palette for the dark CoreUI theme.</desc>
+  <defs>
+    <style>
+      .bg{fill:#14181c}.panel{fill:#1c2228;stroke:#334050;stroke-width:1}.label{fill:#a0aec0;font:13px Segoe UI,Arial,sans-serif}.head{fill:#f0f4f8;font:600 18px Segoe UI,Arial,sans-serif}.tile{fill:#222932;stroke:#334050;stroke-width:1}.line{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.9}.thin{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.45}.tool-s{stroke:#1689d8}.tool-f{fill:rgba(22,137,216,.16);stroke:#1689d8}.build-s{stroke:#e65a4b}.build-f{fill:rgba(230,90,75,.17);stroke:#e65a4b}.heat-s{stroke:#f26b3a}.heat-f{fill:rgba(242,107,58,.17);stroke:#f26b3a}.cool-s{stroke:#63c7ff}.cool-f{fill:rgba(99,199,255,.16);stroke:#63c7ff}.hydro-s{stroke:#3498db}.hydro-f{fill:rgba(52,152,219,.17);stroke:#3498db}.air-s{stroke:#2ecc71}.air-f{fill:rgba(46,204,113,.16);stroke:#2ecc71}.gas-s{stroke:#e67e22}.gas-f{fill:rgba(230,126,34,.18);stroke:#e67e22}.neutral-s{stroke:#a0aec0}.neutral-f{fill:rgba(160,174,192,.14);stroke:#a0aec0}.warn-s{stroke:#f59e0b}.warn-f{fill:rgba(245,158,11,.18);stroke:#f59e0b}
+    </style>
+
+    <symbol id="new-project" viewBox="0 0 24 24">
+      <path class="tool-f" d="M6 3h8l4 4v14H6z"/><path class="line tool-s" d="M14 3v5h4M9 14h6M12 11v6"/>
+    </symbol>
+    <symbol id="open-project" viewBox="0 0 24 24">
+      <path class="tool-f" d="M3 8h7l2 2h9v9H3z"/><path class="line tool-s" d="M4 12h16M3 8V6h7l2 2"/>
+    </symbol>
+    <symbol id="save-project" viewBox="0 0 24 24">
+      <path class="tool-f" d="M5 3h11l3 3v15H5z"/><path class="line tool-s" d="M8 3v6h8V4M8 21v-7h8v7"/>
+    </symbol>
+    <symbol id="project-properties" viewBox="0 0 24 24">
+      <path class="tool-f" d="M5 4h14v16H5z"/><path class="line tool-s" d="M8 8h8M8 12h8M8 16h4"/>
+    </symbol>
+    <symbol id="settings" viewBox="0 0 24 24">
+      <circle class="tool-f" cx="12" cy="12" r="3.2"/><path class="line tool-s" d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M19.8 7.5 17.2 9M6.8 15l-2.6 1.5M3 12h3M18 12h3"/>
+    </symbol>
+    <symbol id="export" viewBox="0 0 24 24">
+      <path class="tool-f" d="M5 4h10l4 4v12H5z"/><path class="line tool-s" d="M15 4v5h4M12 16V9M9 12l3-3 3 3M8 19h8"/>
+    </symbol>
+    <symbol id="print-report" viewBox="0 0 24 24">
+      <path class="tool-f" d="M7 14h10v7H7z"/><path class="line tool-s" d="M7 8V3h10v5M6 17H4v-7h16v7h-2M8 18h8M8 15h8"/>
+    </symbol>
+    <symbol id="info" viewBox="0 0 24 24">
+      <circle class="tool-f" cx="12" cy="12" r="9"/><path class="line tool-s" d="M12 11v6M12 7h.1"/>
+    </symbol>
+    <symbol id="import" viewBox="0 0 24 24">
+      <path class="tool-f" d="M5 4h10l4 4v12H5z"/><path class="line tool-s" d="M15 4v5h4M12 9v7M9 13l3 3 3-3M8 19h8"/>
+    </symbol>
+    <symbol id="search" viewBox="0 0 24 24">
+      <circle class="tool-f" cx="10.5" cy="10.5" r="6.5"/><path class="line tool-s" d="m15.5 15.5 4.5 4.5"/>
+    </symbol>
+
+    <symbol id="dashboard" viewBox="0 0 24 24">
+      <path class="neutral-f" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/><path class="line neutral-s" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
+    </symbol>
+    <symbol id="building-energy" viewBox="0 0 24 24">
+      <path class="build-f" d="M5 21V7l7-4 7 4v14z"/><path class="line build-s" d="M9 21v-6h6v6M8 9h2M14 9h2M8 12h2M14 12h2"/><path class="line warn-s" d="m13 5-2 5h3l-2 5"/>
+    </symbol>
+    <symbol id="building" viewBox="0 0 24 24">
+      <path class="build-f" d="M5 21V5h14v16z"/><path class="line build-s" d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M11 21v-4h2v4"/>
+    </symbol>
+    <symbol id="u-value" viewBox="0 0 24 24">
+      <path class="build-f" d="M5 6h14v12H5z"/><path class="line build-s" d="M5 10h14M5 14h14"/><path class="line warn-s" d="M8 4v16M16 4v16"/>
+    </symbol>
+    <symbol id="heat-load" viewBox="0 0 24 24">
+      <path class="heat-f" d="M12 21c4-2 6-5.2 5-8.4-.6-2-2.2-3.6-3.7-5.1-.9 2.2-2.5 3.1-4 4.6-2 2-2 5.8 2.7 8.9z"/><path class="line heat-s" d="M12 21c4-2 6-5.2 5-8.4-.6-2-2.2-3.6-3.7-5.1-.9 2.2-2.5 3.1-4 4.6-2 2-2 5.8 2.7 8.9zM11 17c-1-1.5-.3-3 1.5-4.4.2 1.4 1.2 2.1 1.5 3.3.3 1.4-.6 2.4-2 3.1"/>
+    </symbol>
+    <symbol id="certification" viewBox="0 0 24 24">
+      <path class="build-f" d="M6 4h12v10l-6 6-6-6z"/><path class="line build-s" d="M9 11l2 2 4-5M6 4h12v10l-6 6-6-6z"/>
+    </symbol>
+
+    <symbol id="heating" viewBox="0 0 24 24">
+      <path class="heat-f" d="M12 21c4-2 6-5.2 5-8.4-.6-2-2.2-3.6-3.7-5.1-.9 2.2-2.5 3.1-4 4.6-2 2-2 5.8 2.7 8.9z"/><path class="line heat-s" d="M12 21c4-2 6-5.2 5-8.4-.6-2-2.2-3.6-3.7-5.1-.9 2.2-2.5 3.1-4 4.6-2 2-2 5.8 2.7 8.9z"/>
+    </symbol>
+    <symbol id="cooling" viewBox="0 0 24 24">
+      <circle class="cool-f" cx="12" cy="12" r="3"/><path class="line cool-s" d="M12 3v18M5 6l14 12M19 6 5 18M8.5 4.5 12 7.2l3.5-2.7M8.5 19.5l3.5-2.7 3.5 2.7M3.8 9.5l4.3-.6 1.6-4M20.2 14.5l-4.3.6-1.6 4M20.2 9.5l-4.3-.6-1.6-4M3.8 14.5l4.3.6 1.6 4"/>
+    </symbol>
+    <symbol id="pipe-network" viewBox="0 0 24 24">
+      <path class="hydro-f" d="M5 8h14v4H5zM10 12h4v7h-4z"/><path class="line hydro-s" d="M5 8h14v4H5zM10 12h4v7h-4M7 6v8M17 6v8"/>
+    </symbol>
+    <symbol id="pump" viewBox="0 0 24 24">
+      <circle class="hydro-f" cx="11" cy="12" r="5"/><path class="line hydro-s" d="M3 12h3M16 12h5M11 7v10M8 12h6M18 9v6"/>
+    </symbol>
+
+    <symbol id="sanitary-water" viewBox="0 0 24 24">
+      <path class="hydro-f" d="M7 6h8v4H7z"/><path class="line hydro-s" d="M9 6V4h8v3M7 10h10M17 10c2.5 0 3 2 3 3.5M8 14c0 2 1.5 3.5 4 5 2.5-1.5 4-3 4-5"/>
+    </symbol>
+    <symbol id="water-demand" viewBox="0 0 24 24">
+      <path class="hydro-f" d="M12 4c4 4.5 6 7.3 6 10a6 6 0 0 1-12 0c0-2.7 2-5.5 6-10z"/><path class="line hydro-s" d="M12 4c4 4.5 6 7.3 6 10a6 6 0 0 1-12 0c0-2.7 2-5.5 6-10zM9 15a3 3 0 0 0 3 3"/>
+    </symbol>
+    <symbol id="sewer" viewBox="0 0 24 24">
+      <path class="hydro-f" d="M4 12h16v6H4z"/><path class="line hydro-s" d="M4 12h16v6H4zM7 12V7h10v5M8 15h8"/>
+    </symbol>
+    <symbol id="dhw-circulation" viewBox="0 0 24 24">
+      <path class="heat-f" d="M12 5c3.5 3.6 5 6 5 8.3a5 5 0 0 1-10 0C7 11 8.5 8.6 12 5z"/><path class="line heat-s" d="M12 5c3.5 3.6 5 6 5 8.3a5 5 0 0 1-10 0C7 11 8.5 8.6 12 5z"/><path class="line hydro-s" d="M6 5h5M8 3 6 5l2 2M18 19h-5M16 17l2 2-2 2"/>
+    </symbol>
+    <symbol id="long-profile" viewBox="0 0 24 24">
+      <path class="hydro-f" d="M4 18h16v2H4z"/><path class="line hydro-s" d="M4 18 9 9l4 5 3-7 4 11M4 20h16"/>
+    </symbol>
+
+    <symbol id="air" viewBox="0 0 24 24">
+      <path class="air-f" d="M4 7h10a3 3 0 0 0-3-3M4 13h15a3 3 0 0 1-3 3M4 18h8"/><circle cx="18" cy="7" r="2.4" fill="rgba(46,204,113,.16)" stroke="#2ecc71"/>
+    </symbol>
+    <symbol id="air-velocity" viewBox="0 0 24 24">
+      <path class="air-f" d="M4 14h11a3 3 0 0 0-3-3M4 18h8"/><path class="line air-s" d="M5 7h9M11 4l3 3-3 3M4 14h11a3 3 0 0 0-3-3M4 18h8"/>
+    </symbol>
+    <symbol id="duct-sizing" viewBox="0 0 24 24">
+      <path class="air-f" d="M5 7h14v10H5z"/><path class="line air-s" d="M5 7h14v10H5zM8 10h8M8 14h5M19 5v14M16 4l3 1 3-1M16 20l3-1 3 1"/>
+    </symbol>
+    <symbol id="duct-network" viewBox="0 0 24 24">
+      <path class="air-f" d="M4 10h8v4H4zM12 5h8v4h-8zM12 15h8v4h-8z"/><path class="line air-s" d="M4 10h8v4H4zM12 7H9v5M12 17H9v-5M12 5h8v4h-8zM12 15h8v4h-8z"/>
+    </symbol>
+
+    <symbol id="flue-gas" viewBox="0 0 24 24">
+      <path class="gas-f" d="M7 21V5h5v16z"/><path class="line gas-s" d="M7 21V5h5v16M12 8h4c3 0 4 2 4 4s-1 4-4 4h-4M16 11c1.5 0 2 .5 2 1s-.5 1-2 1"/>
+    </symbol>
+    <symbol id="safety" viewBox="0 0 24 24">
+      <path class="warn-f" d="M12 3 4 6v6c0 4.5 3 7.5 8 9 5-1.5 8-4.5 8-9V6z"/><path class="line warn-s" d="M12 3 4 6v6c0 4.5 3 7.5 8 9 5-1.5 8-4.5 8-9V6zM12 8v5M12 16h.1"/>
+    </symbol>
+  </defs>
+
+  <rect class="bg" width="1200" height="760"/>
+  <rect class="panel" x="24" y="24" width="1152" height="712" rx="10"/>
+  <text class="head" x="48" y="62">HVAC Designer icon palette - dark theme</text>
+  <text class="label" x="48" y="86">Duotone SVG icons: muted fill, clear stroke, section color identity.</text>
+
+  <g transform="translate(48,120)">
+    <text class="head" x="0" y="0">Header actions</text>
+    <g transform="translate(0,24)">
+      <g><rect class="tile" width="92" height="78" rx="8"/><use href="#new-project" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">New</text></g>
+      <g transform="translate(104,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#open-project" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Open</text></g>
+      <g transform="translate(208,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#save-project" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Save</text></g>
+      <g transform="translate(312,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#project-properties" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Project</text></g>
+      <g transform="translate(416,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#settings" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Settings</text></g>
+      <g transform="translate(520,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#export" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Export</text></g>
+      <g transform="translate(624,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#print-report" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Print</text></g>
+      <g transform="translate(728,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#info" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Info</text></g>
+      <g transform="translate(832,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#import" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Import</text></g>
+      <g transform="translate(936,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#search" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Search</text></g>
+    </g>
+  </g>
+
+  <g transform="translate(48,260)">
+    <text class="head" x="0" y="0">Sections and modules</text>
+    <g transform="translate(0,24)">
+      <g><rect class="tile" width="92" height="78" rx="8"/><use href="#dashboard" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Dashboard</text></g>
+      <g transform="translate(104,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#building-energy" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Energy</text></g>
+      <g transform="translate(208,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#building" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Building</text></g>
+      <g transform="translate(312,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#u-value" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">U-value</text></g>
+      <g transform="translate(416,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#heat-load" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Heat load</text></g>
+      <g transform="translate(520,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#certification" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Certify</text></g>
+      <g transform="translate(624,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#heating" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Heating</text></g>
+      <g transform="translate(728,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#cooling" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Cooling</text></g>
+      <g transform="translate(832,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#pipe-network" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Pipes</text></g>
+      <g transform="translate(936,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#pump" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Pump</text></g>
+    </g>
+    <g transform="translate(0,116)">
+      <g><rect class="tile" width="92" height="78" rx="8"/><use href="#sanitary-water" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Water</text></g>
+      <g transform="translate(104,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#water-demand" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Demand</text></g>
+      <g transform="translate(208,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#sewer" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Sewer</text></g>
+      <g transform="translate(312,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#dhw-circulation" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">DHW</text></g>
+      <g transform="translate(416,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#long-profile" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Profile</text></g>
+      <g transform="translate(520,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#air" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Air</text></g>
+      <g transform="translate(624,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#air-velocity" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Velocity</text></g>
+      <g transform="translate(728,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#duct-sizing" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Sizing</text></g>
+      <g transform="translate(832,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#duct-network" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Network</text></g>
+      <g transform="translate(936,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#flue-gas" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Flue gas</text></g>
+      <g transform="translate(1040,0)"><rect class="tile" width="92" height="78" rx="8"/><use href="#safety" x="33" y="12" width="26" height="26"/><text class="label" x="12" y="58">Safety</text></g>
+    </g>
+  </g>
+</svg>

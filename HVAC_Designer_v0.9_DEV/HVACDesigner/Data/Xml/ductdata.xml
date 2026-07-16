@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ==========================================================
+     HVAC Designer
+     Duct Data Database
+
+     Statikus légtechnikai méretezési adatok
+
+     Tartalmazza:
+     - anyagokat
+     - szabvány méreteket
+     - egyenes csatornákat
+     - idomokat
+     - kiegészítő elemeket
+
+     A program XML-ből tölti be az adatokat.
+=========================================================== -->
+
+
+<DuctDatabase Version="1.0">
+
+
+	<!-- ======================================================
+         ANYAGOK
+    ======================================================= -->
+
+	<Materials>
+
+
+		<Material
+			Id="MAT_GALV"
+			Name="Horganyzott acéllemez"
+			Roughness="0.15"
+			Flexible="false" />
+
+
+		<Material
+			Id="MAT_PIR"
+			Name="PIR légcsatorna panel"
+			Roughness="0.05"
+			Flexible="false" />
+
+
+		<Material
+			Id="MAT_TEXTILE"
+			Name="Textil légcsatorna"
+			Roughness="0.18"
+			Flexible="false" />
+
+
+		<Material
+			Id="MAT_SEMIFLEX"
+			Name="Félmerev PE cső"
+			Roughness="0.35"
+			Flexible="true" />
+
+
+		<Material
+			Id="MAT_FLEX_ALU"
+			Name="Flexibilis alumínium cső"
+			Roughness="0.80"
+			Flexible="true" />
+
+
+	</Materials>
+
+
+
+
+	<!-- ======================================================
+         KÖR CSATORNA SZABVÁNY MÉRETEK
+    ======================================================= -->
+
+
+	<CircularSizes>
+
+
+		<Size Diameter="75" />
+		<Size Diameter="80" />
+		<Size Diameter="90" />
+		<Size Diameter="100" />
+		<Size Diameter="125" />
+		<Size Diameter="150" />
+		<Size Diameter="160" />
+		<Size Diameter="180" />
+		<Size Diameter="200" />
+		<Size Diameter="224" />
+		<Size Diameter="250" />
+		<Size Diameter="280" />
+		<Size Diameter="300" />
+		<Size Diameter="315" />
+		<Size Diameter="355" />
+		<Size Diameter="400" />
+		<Size Diameter="450" />
+		<Size Diameter="500" />
+		<Size Diameter="560" />
+		<Size Diameter="630" />
+		<Size Diameter="710" />
+		<Size Diameter="800" />
+		<Size Diameter="900" />
+		<Size Diameter="1000" />
+
+
+	</CircularSizes>
+
+
+
+
+
+	<!-- ======================================================
+         NÉGYSZÖG CSATORNA SZABVÁNY MÉRETEK
+    ======================================================= -->
+
+
+	<RectangularSizes>
+
+
+		<Size Width="100" Height="100" />
+		<Size Width="150" Height="100" />
+		<Size Width="200" Height="100" />
+		<Size Width="250" Height="150" />
+		<Size Width="300" Height="150" />
+		<Size Width="400" Height="200" />
+		<Size Width="500" Height="250" />
+		<Size Width="600" Height="300" />
+		<Size Width="700" Height="350" />
+		<Size Width="800" Height="400" />
+		<Size Width="900" Height="450" />
+		<Size Width="1000" Height="500" />
+		<Size Width="1200" Height="600" />
+		<Size Width="1400" Height="700" />
+		<Size Width="1600" Height="800" />
+
+
+	</RectangularSizes>
+
+
+
+
+
+	<!-- ======================================================
+         EGYENES LÉGCSATORNÁK
+    ======================================================= -->
+
+
+	<StraightDucts>
+
+
+
+		<!-- ===============================
+		     KÖR CSATORNÁK
+		================================ -->
+
+
+		<Circular>
+
+
+			<Duct
+				Id="ROUND_GALV"
+				Name="Kör horganyzott légcsatorna"
+				Material="MAT_GALV"
+				PressureModel="Friction" />
+
+
+			<Duct
+				Id="ROUND_FLEX"
+				Name="Flexibilis kör légcsatorna"
+				Material="MAT_FLEX_ALU"
+				PressureModel="Friction" />
+
+
+			<Duct
+				Id="ROUND_SEMIFLEX"
+				Name="Félmerev PE kör cső"
+				Material="MAT_SEMIFLEX"
+				PressureModel="Friction" />
+
+
+		</Circular>
+
+
+
+
+
+		<!-- ===============================
+		     NÉGYSZÖG CSATORNÁK
+		================================ -->
+
+
+		<Rectangular>
+
+
+			<Duct
+				Id="RECT_GALV"
+				Name="Négyszög horganyzott légcsatorna"
+				Material="MAT_GALV"
+				PressureModel="Friction" />
+
+
+			<Duct
+				Id="RECT_CANVAS"
+				Name="Légkezelő rezgéscsillapító csatlakozó"
+				Material="MAT_CANVAS"
+				PressureModel="Friction" />
+
+
+		</Rectangular>
+
+
+
+	</StraightDucts>
+	<!-- ======================================================
+         IDOMOK
+    ======================================================= -->
+
+	<Fittings>
+
+		<!-- ======================================================
+		     KÖR KÖNYÖKÖK
+		======================================================= -->
+
+		<CircularFittings>
+
+			<Elbows>
+
+				<Fitting
+					Id="C_ELBOW90"
+					Name="90° kör könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowSizeChange="false"
+					AllowLength="true"
+					AllowRadius="true"
+					AllowBranch="false"
+					PressureModel="Zeta"
+					DefaultZeta="0.35" />
+
+				<Fitting
+					Id="C_ELBOW45"
+					Name="45° kör könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowSizeChange="false"
+					AllowLength="true"
+					AllowRadius="true"
+					AllowBranch="false"
+					PressureModel="Zeta"
+					DefaultZeta="0.20" />
+
+				<Fitting
+					Id="C_ELBOW90_LONG"
+					Name="90° hosszú kör könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowRadius="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.18" />
+
+				<Fitting
+					Id="C_ELBOW90_SHORT"
+					Name="90° rövid kör könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowRadius="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.55" />
+
+				<Fitting
+					Id="C_ELBOW_SEGMENT"
+					Name="Szegmenses kör könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowRadius="false"
+					PressureModel="Zeta"
+					DefaultZeta="0.45" />
+
+			</Elbows>
+
+
+			<!-- ======================================================
+			     KÖR SZŰKÍTŐ / BŐVÍTŐ
+			======================================================= -->
+
+			<SizeChanges>
+
+				<Fitting
+					Id="C_REDUCER"
+					Name="Kör szűkítő"
+					Category="Reducer"
+					GeometryType="SizeChange"
+					FlowDirection="Forward"
+					AllowSizeChange="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.15" />
+
+				<Fitting
+					Id="C_EXPANDER"
+					Name="Kör bővítő"
+					Category="Expander"
+					GeometryType="SizeChange"
+					FlowDirection="Forward"
+					AllowSizeChange="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.25" />
+
+			</SizeChanges>
+
+
+		</CircularFittings>
+
+
+		<!-- ======================================================
+		     NÉGYSZÖG IDOMOK
+		======================================================= -->
+
+		<RectangularFittings>
+
+			<Elbows>
+
+				<Fitting
+					Id="R_ELBOW90"
+					Name="90° négyszög könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowLength="true"
+					AllowRadius="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.40" />
+
+				<Fitting
+					Id="R_ELBOW45"
+					Name="45° négyszög könyök"
+					Category="Elbow"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowLength="true"
+					AllowRadius="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.25" />
+
+			</Elbows>
+
+
+			<Offsets>
+
+				<Fitting
+					Id="R_OFFSET"
+					Name="Négyszög elhúzás"
+					Category="Offset"
+					GeometryType="SingleSize"
+					FlowDirection="Both"
+					AllowLength="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.30" />
+
+			</Offsets>
+
+
+			<SizeChanges>
+
+				<Fitting
+					Id="R_REDUCER"
+					Name="Négyszög szűkítő"
+					Category="Reducer"
+					GeometryType="SizeChange"
+					AllowSizeChange="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.20" />
+
+				<Fitting
+					Id="R_EXPANDER"
+					Name="Négyszög bővítő"
+					Category="Expander"
+					GeometryType="SizeChange"
+					AllowSizeChange="true"
+					PressureModel="Zeta"
+					DefaultZeta="0.30" />
+
+			</SizeChanges>
+
+		</RectangularFittings>
+		<!-- ======================================================
+		     ÁTMENETI IDOMOK
+		======================================================= -->
+
+		<Transitions>
+
+
+			<Fitting
+				Id="C2C"
+				Name="Kör → Kör átmenet"
+				Category="Transition"
+				GeometryType="ShapeChange"
+				FlowDirection="Forward"
+				AllowSizeChange="true"
+				AllowLength="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.20" />
+
+
+			<Fitting
+				Id="R2R"
+				Name="Négyszög → Négyszög átmenet"
+				Category="Transition"
+				GeometryType="ShapeChange"
+				FlowDirection="Forward"
+				AllowSizeChange="true"
+				AllowLength="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.25" />
+
+
+			<Fitting
+				Id="C2R"
+				Name="Kör → Négyszög átmenet"
+				Category="Transition"
+				GeometryType="ShapeChange"
+				FlowDirection="Forward"
+				AllowSizeChange="true"
+				AllowLength="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.30" />
+
+
+			<Fitting
+				Id="R2C"
+				Name="Négyszög → Kör átmenet"
+				Category="Transition"
+				GeometryType="ShapeChange"
+				FlowDirection="Forward"
+				AllowSizeChange="true"
+				AllowLength="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.30" />
+
+
+		</Transitions>
+
+
+		<!-- ======================================================
+		     ELÁGAZÓ IDOMOK
+		======================================================= -->
+
+		<Branches>
+
+
+			<Fitting
+				Id="TEE90"
+				Name="90° T-idom"
+				Category="Branch"
+				GeometryType="ThreeWay"
+				FlowDirection="Both"
+				AllowBranch="true"
+				AllowSizeChange="true"
+				PressureModel="Zeta"
+				DefaultZeta="1.00" />
+
+
+			<Fitting
+				Id="TEE45"
+				Name="45° T-idom"
+				Category="Branch"
+				GeometryType="ThreeWay"
+				FlowDirection="Both"
+				AllowBranch="true"
+				AllowSizeChange="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.60" />
+
+
+			<Fitting
+				Id="Y_BRANCH"
+				Name="Y elágazó idom"
+				Category="Branch"
+				GeometryType="ThreeWay"
+				FlowDirection="Both"
+				AllowBranch="true"
+				AllowSizeChange="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.35" />
+
+
+			<Fitting
+				Id="PANTS"
+				Name="Nadrágidom"
+				Category="Branch"
+				GeometryType="ThreeWay"
+				FlowDirection="Both"
+				AllowBranch="true"
+				AllowSizeChange="true"
+				PressureModel="Zeta"
+				DefaultZeta="0.50" />
+
+
+			<Fitting
+				Id="CROSS"
+				Name="Keresztidom"
+				Category="Branch"
+				GeometryType="FourWay"
+				FlowDirection="Both"
+				AllowBranch="true"
+				AllowSizeChange="true"
+				PressureModel="Zeta"
+				DefaultZeta="1.20" />
+
+
+		</Branches>
+
+
+	</Fittings>
+
+
+	<!-- ======================================================
+	     ZSALUK ÉS SZABÁLYOZÓ ELEMEK
+	======================================================= -->
+
+	<Dampers>
+
+
+		<Damper
+			Id="VOLUME_DAMPER"
+			Name="Térfogatáram szabályozó zsalu"
+			Category="Damper"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="0.80" />
+
+
+		<Damper
+			Id="FIRE_DAMPER"
+			Name="Tűzvédelmi csappantyú"
+			Category="FireDamper"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.50" />
+
+
+		<Damper
+			Id="SMOKE_DAMPER"
+			Name="Füstcsappantyú"
+			Category="SmokeDamper"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.20" />
+
+
+	</Dampers>
+	<!-- ======================================================
+	     HANGTOMPÍTÓK
+	======================================================= -->
+
+	<Silencers>
+
+		<Silencer
+			Id="SILENCER_BASIC"
+			Name="Alap hangcsillapító"
+			Category="Silencer"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="0.40" />
+
+		<Silencer
+			Id="SILENCER_HIGH"
+			Name="Nagy csillapítású hangtompító"
+			Category="Silencer"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="0.70" />
+
+	</Silencers>
+
+
+	<!-- ======================================================
+	     SZŰRŐK
+	======================================================= -->
+
+	<Filters>
+
+		<Filter
+			Id="FILTER_BASIC"
+			Name="Alap légszűrő"
+			Category="Filter"
+			GeometryType="SingleSize"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.00" />
+
+		<Filter
+			Id="FILTER_FINE"
+			Name="Finomszűrő"
+			Category="Filter"
+			GeometryType="SingleSize"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.50" />
+
+	</Filters>
+
+
+	<!-- ======================================================
+	     VÁLTOZÓ LÉGÁRAMÚ EGYSÉG
+	======================================================= -->
+
+	<VAV>
+
+		<Device
+			Id="VAV_BASIC"
+			Name="VAV szabályozó egység"
+			Category="VAV"
+			GeometryType="SingleSize"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="2.00" />
+
+	</VAV>
+
+
+	<!-- ======================================================
+	     ÁLLANDÓ LÉGÁRAMÚ EGYSÉG
+	======================================================= -->
+
+	<CAV>
+
+		<Device
+			Id="CAV_BASIC"
+			Name="CAV szabályozó egység"
+			Category="CAV"
+			GeometryType="SingleSize"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.50" />
+
+	</CAV>
+	<!-- ======================================================
+	     KÜLSŐ RÁCSOK
+	======================================================= -->
+
+	<Louvers>
+
+		<Louver
+			Id="LOUVER_BASIC"
+			Name="Külső légbevezető rács"
+			Category="Louver"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			FreeArea="60"
+			PressureModel="Zeta"
+			DefaultZeta="1.00" />
+
+		<Louver
+			Id="LOUVER_WEATHER"
+			Name="Esővédő légbevezető rács"
+			Category="Louver"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			FreeArea="50"
+			PressureModel="Zeta"
+			DefaultZeta="1.20" />
+
+	</Louvers>
+
+
+	<!-- ======================================================
+	     LÉGRÁCSOK
+	======================================================= -->
+
+	<Grilles>
+
+		<Grille
+			Id="GRILLE_SUPPLY"
+			Name="Befúvó rács"
+			Category="Grille"
+			GeometryType="Terminal"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			FreeArea="70"
+			PressureModel="Zeta"
+			DefaultZeta="0.80" />
+
+		<Grille
+			Id="GRILLE_RETURN"
+			Name="Elszívó rács"
+			Category="Grille"
+			GeometryType="Terminal"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			FreeArea="65"
+			PressureModel="Zeta"
+			DefaultZeta="0.60" />
+
+		<Grille
+			Id="GRILLE_LINEAR"
+			Name="Lineáris befúvó rács"
+			Category="Grille"
+			GeometryType="Terminal"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			FreeArea="75"
+			PressureModel="Zeta"
+			DefaultZeta="0.50" />
+
+	</Grilles>
+	<!-- ======================================================
+	     BEFÚVÓ ELEMEK
+	======================================================= -->
+
+	<Diffusers>
+
+		<Diffuser
+			Id="DIFFUSER_BASIC"
+			Name="Alap mennyezeti befúvó"
+			Category="Diffuser"
+			GeometryType="Terminal"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			PressureModel="Zeta"
+			DefaultZeta="1.00" />
+
+	</Diffusers>
+	<!-- ======================================================
+	     TETŐKIVEZETÉSEK
+	======================================================= -->
+
+	<RoofCaps>
+
+		<RoofCap
+			Id="ROOF_CAP_BASIC"
+			Name="Alap tetőkivezetés"
+			Category="RoofCap"
+			GeometryType="Terminal"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			FreeArea="70"
+			PressureModel="Zeta"
+			DefaultZeta="1.20" />
+
+		<RoofCap
+			Id="ROOF_CAP_WEATHER"
+			Name="Esővédő tetőkivezetés"
+			Category="RoofCap"
+			GeometryType="Terminal"
+			FlowDirection="Both"
+			AllowSizeChange="false"
+			FreeArea="60"
+			PressureModel="Zeta"
+			DefaultZeta="1.50" />
+
+	</RoofCaps>
+
+
+	<!-- ======================================================
+	     ELSZÍVÓ SAPKÁK
+	======================================================= -->
+
+	<Hoods>
+
+		<Hood
+			Id="HOOD_BASIC"
+			Name="Alap elszívó sapka"
+			Category="Hood"
+			GeometryType="Terminal"
+			FlowDirection="Forward"
+			AllowSizeChange="false"
+			FreeArea="65"
+			PressureModel="Zeta"
+			DefaultZeta="1.00" />
+
+	</Hoods>
+
+
+	<!-- ======================================================
+	     FLEXIBILIS CSATORNÁK
+	======================================================= -->
+
+	<FlexibleDucts>
+
+		<Duct
+			Id="FLEX_ALU"
+			Name="Flexibilis alumínium cső"
+			Category="FlexibleDuct"
+			Material="MAT_FLEX_ALU"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="true"
+			PressureModel="Friction"
+			DefaultZeta="0" />
+
+		<Duct
+			Id="FLEX_SILENCER"
+			Name="Hangcsillapító flexibilis cső"
+			Category="FlexibleDuct"
+			Material="MAT_FLEX_ALU"
+			GeometryType="SingleSize"
+			FlowDirection="Both"
+			AllowSizeChange="true"
+			PressureModel="Friction"
+			DefaultZeta="0" />
+
+	</FlexibleDucts>
+
+
+	<!-- ======================================================
+	     EGYEDI ELEMEK
+	======================================================= -->
+
+	<CustomElements>
+
+		<Element
+			Id="CUSTOM"
+			Name="Egyedi légtechnikai elem"
+			Category="Custom"
+			GeometryType="Custom"
+			FlowDirection="Both"
+			AllowSizeChange="true"
+			AllowLength="true"
+			PressureModel="Zeta"
+			DefaultZeta="1.00" />
+
+	</CustomElements>
+
+
+</DuctDatabase>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringData Id="Catalog.Fixtures" Version="1.0" SchemaVersion="1.0" DataType="Catalog" Country="HU" DisplayName="Gépészeti szerelvénykatalógus" ValidFrom="2026-01-01">
+	<Dependencies />
+	<Fixtures>
+		<Fixture Id="WashBasin" DisplayName="Mosdó csaptelep (DN15)" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="0.5" MinimumWasteDN="40" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="KitchenSink" DisplayName="Konyhai mosogató" Category="Kitchen" PotableLoadingUnit="1.0" WastewaterDU="0.8" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="conditional" />
+		<Fixture Id="Shower" DisplayName="Zuhany" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="0.6" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="ShowerTrough" DisplayName="Zuhanysor" Category="Sanitary" PotableLoadingUnit="1.0" WastewaterDU="0.8" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="Bath" DisplayName="Fürdőkád" Category="Sanitary" PotableLoadingUnit="1.0" WastewaterDU="0.8" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="WCWithCistern" DisplayName="Öblítőtartályos WC" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="2.0" MinimumWasteDN="100" GreywaterDemand="true" />
+		<Fixture Id="WCWithFlushValve" DisplayName="Öblítőszelepes WC" Category="Sanitary" PotableLoadingUnit="4.0" WastewaterDU="2.0" MinimumWasteDN="100" GreywaterDemand="true" />
+		<Fixture Id="Urinal" DisplayName="Vizelde" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="0.5" MinimumWasteDN="50" GreywaterDemand="true" />
+		<Fixture Id="DrinkingFountain" DisplayName="Ivókút" Category="Sanitary" PotableLoadingUnit="0.3" WastewaterDU="0.3" MinimumWasteDN="32" />
+		<Fixture Id="Bidet" DisplayName="Bidé" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="0.5" MinimumWasteDN="40" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="WashTrough" DisplayName="Csoportos kézmosó" Category="Sanitary" PotableLoadingUnit="1.0" WastewaterDU="0.6" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="true" />
+		<Fixture Id="LaboratoryTap" DisplayName="Laboratóriumi csaptelep" Category="Sanitary" PotableLoadingUnit="0.5" WastewaterDU="0.5" MinimumWasteDN="40" HotWaterRelevant="true" GreywaterSource="conditional" />
+		<Fixture Id="WashingMachine" DisplayName="Mosógép" Category="Appliance" PotableLoadingUnit="1.0" WastewaterDU="0.8" MinimumWasteDN="50" GreywaterSource="true" />
+		<Fixture Id="Dishwasher" DisplayName="Mosogatógép" Category="Appliance" PotableLoadingUnit="1.0" WastewaterDU="0.8" MinimumWasteDN="50" GreywaterSource="conditional" />
+		<Fixture Id="FloorDrain" DisplayName="Padlóösszefolyó" Category="Drainage" WastewaterDU="0.8" MinimumWasteDN="50" />
+		<Fixture Id="CondensateFunnel" DisplayName="Kondenzvíz tölcsér" Category="Drainage" WastewaterDU="0.1" MinimumWasteDN="32" />
+		<Fixture Id="CleaningSink" DisplayName="Takarítókiállás‘" Category="Service" PotableLoadingUnit="1.0" WastewaterDU="1.5" MinimumWasteDN="50" HotWaterRelevant="true" GreywaterSource="conditional" />
+		<Fixture Id="SlopSink" DisplayName="Kiöntő" Category="Service" PotableLoadingUnit="1.0" WastewaterDU="2.5" MinimumWasteDN="70" HotWaterRelevant="true" GreywaterSource="conditional" />
+		<Fixture Id="RoofOutlet" DisplayName="Tetőösszefolyó" Category="RoofDrainage" MinimumWasteDN="70" />
+		<Fixture Id="GardenTap" DisplayName="Kerti kifolyó" Category="Outdoor" PotableLoadingUnit="1.0" />
+	</Fixtures>
+	
+</EngineeringData>

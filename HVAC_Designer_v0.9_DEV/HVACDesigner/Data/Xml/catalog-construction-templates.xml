@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  catalog-construction-templates.xml
+  Épületszerkezeti rétegrendsablonok.
+
+  FONTOS: Ez a fájl CSAK rétegrendeket tartalmaz.
+  - ÉKM határértéket (Umax) NEM tartalmaz → az rules-ekm.xml-ben van.
+  - Anyagtulajdonságot NEM tartalmaz → a catalog-materials.xml-ben van.
+  - Légréteg-adatot NEM tartalmaz → a catalog-air-layers.xml-ben van.
+
+  Struktúra:
+    Construction
+    ├── Id, Type, DisplayName, DataStatus
+    └── Layer+
+        ├── Order       – belső oldaltól külső oldal felé (1 = legbelső)
+        ├── MaterialId  – hivatkozás catalog-materials.xml-re
+        ├── AirLayerId  – hivatkozás catalog-air-layers.xml-re (opcionális)
+        ├── Thickness   – [m] (anyagrétegnél kötelező, légrétegnél elhagyható)
+        └── Description – opcionális megjegyzés
+
+  ConstructionType értékek:
+    ExternalWall, InternalWall, Roof, Ceiling, Floor,
+    GroundFloor, BasementWall, Slab, HistoricalWall, Custom
+
+  DataStatus:
+    MvpSample        – mintaadat, nem hitelesített
+    EngineeringDefault – mérnöki alapérték, elfogadható tervezési célra
+-->
+<EngineeringData
+  Id="Catalog.ConstructionTemplates"
+  Version="1.0"
+  SchemaVersion="1.0"
+  DataType="Catalog"
+  Country="HU"
+  DisplayName="Épületszerkezeti rétegrendsablonok"
+  ValidFrom="2026-01-01">
+  <Dependencies>
+    <Dependency Id="Catalog.Materials" MinVersion="1.0" />
+    <Dependency Id="Catalog.AirLayers" MinVersion="1.0" />
+  </Dependencies>
+
+  <Constructions>
+
+    <!-- ===================================================
+         KÜLSŐ FALAK (ExternalWall)
+         =================================================== -->
+
+    <!-- Korszerű ETICS vakolati rendszer – jó hőteljesítmény -->
+    <Construction
+      Id="Wall.External.CeramicBlock.200.EPS.120"
+      Type="ExternalWall"
+      DisplayName="Külső fal: 20 cm vázkerámia + 12 cm EPS ETICS"
+      DataStatus="EngineeringDefault">
+      <!-- Belső oldaltól külső oldal felé -->
+      <Layer Order="1" MaterialId="GypsumRender"   Thickness="0.015" Description="Belső gipszvakolat" />
+      <Layer Order="2" MaterialId="CeramicBlock"   Thickness="0.200" Description="Vázkerámia falazat" />
+      <Layer Order="3" MaterialId="EPS"             Thickness="0.120" Description="EPS homlokzati szigetelés" />
+      <Layer Order="4" MaterialId="NobleRender"     Thickness="0.015" Description="Külső nemes vakolat" />
+    </Construction>
+
+    <!-- Grafitos EPS ETICS – passzívház-közeli teljesítmény -->
+    <Construction
+      Id="Wall.External.CeramicBlock.200.EPSGrafit.150"
+      Type="ExternalWall"
+      DisplayName="Külső fal: 20 cm vázkerámia + 15 cm grafitos EPS ETICS"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumRender"   Thickness="0.015" />
+      <Layer Order="2" MaterialId="CeramicBlock"   Thickness="0.200" />
+      <Layer Order="3" MaterialId="EPSGrafit"       Thickness="0.150" />
+      <Layer Order="4" MaterialId="NobleRender"     Thickness="0.015" />
+    </Construction>
+
+    <!-- Kőzetgyapot ETICS – tűzálló, légáteresztő -->
+    <Construction
+      Id="Wall.External.CeramicBlock.200.MineralWool.100"
+      Type="ExternalWall"
+      DisplayName="Külső fal: 20 cm vázkerámia + 10 cm kőzetgyapot ETICS"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumRender"   Thickness="0.015" />
+      <Layer Order="2" MaterialId="CeramicBlock"   Thickness="0.200" />
+      <Layer Order="3" MaterialId="MineralWool"    Thickness="0.100" />
+      <Layer Order="4" MaterialId="NobleRender"    Thickness="0.015" />
+    </Construction>
+
+    <!-- Pórusbeton falazat + EPS szigetelés -->
+    <Construction
+      Id="Wall.External.AAC.250.EPS.100"
+      Type="ExternalWall"
+      DisplayName="Külső fal: 25 cm pórusbeton (Ytong) + 10 cm EPS ETICS"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumRender"   Thickness="0.015" />
+      <Layer Order="2" MaterialId="AAC"            Thickness="0.250" />
+      <Layer Order="3" MaterialId="EPS"            Thickness="0.100" />
+      <Layer Order="4" MaterialId="NobleRender"    Thickness="0.015" />
+    </Construction>
+
+    <!-- Régi téglaépület – szigeteletlen (felújítási kiindulópont) -->
+    <Construction
+      Id="Wall.External.SolidBrick.450.Uninsulated"
+      Type="ExternalWall"
+      DisplayName="Régi tömör téglafalazat, 45 cm, szigeteletlen (felújítási bázis)"
+      DataStatus="MvpSample">
+      <Layer Order="1" MaterialId="LimeSandRender"  Thickness="0.020" />
+      <Layer Order="2" MaterialId="SolidBrick"      Thickness="0.450" />
+      <Layer Order="3" MaterialId="CementRender"    Thickness="0.015" />
+    </Construction>
+
+    <!-- Vasbeton falvázas épület (panel) – régi -->
+    <Construction
+      Id="Wall.External.ReinforcedConcrete.Panel.160.Uninsulated"
+      Type="ExternalWall"
+      DisplayName="Régi vasbeton panel fal, 16 cm, szigeteletlen"
+      DataStatus="MvpSample">
+      <Layer Order="1" MaterialId="GypsumRender"        Thickness="0.010" />
+      <Layer Order="2" MaterialId="ReinforcedConcrete"  Thickness="0.160" />
+      <Layer Order="3" MaterialId="CementRender"        Thickness="0.010" />
+    </Construction>
+
+    <!-- ===================================================
+         TETŐK (Roof) – lapos tető
+         =================================================== -->
+
+    <!-- Lapos tető – fordított rend (XPS a vízszigetelés felett) -->
+    <Construction
+      Id="Roof.Flat.RC.Inverted.XPS.120"
+      Type="Roof"
+      DisplayName="Lapos tető: vasbeton szerkezet + fordított XPS szigetelés 12 cm"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="ReinforcedConcrete" Thickness="0.200" Description="Vasbeton aljzat" />
+      <Layer Order="2" MaterialId="LightConcrete"      Thickness="0.080" Description="Lejtbeton (esővíz elvezetés)" />
+      <Layer Order="3" MaterialId="BituminousSheet"    Thickness="0.005" Description="Vízszigetelés" />
+      <Layer Order="4" MaterialId="XPS"                Thickness="0.120" Description="XPS hőszigetelés (fordított rend)" />
+    </Construction>
+
+    <!-- Lapos tető – hagyományos rend (EPS a vízszigetelés alatt) -->
+    <Construction
+      Id="Roof.Flat.RC.Traditional.EPS.150"
+      Type="Roof"
+      DisplayName="Lapos tető: vasbeton + EPS 15 cm + vízszigetelés"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="ReinforcedConcrete" Thickness="0.200" />
+      <Layer Order="2" MaterialId="LightConcrete"      Thickness="0.080" />
+      <Layer Order="3" MaterialId="EPS"                Thickness="0.150" />
+      <Layer Order="4" MaterialId="BituminousSheet"    Thickness="0.005" />
+    </Construction>
+
+    <!-- ===================================================
+         PADLÁSFÖDÉMEK (Ceiling) – fűtetlen padlástér alatt
+         =================================================== -->
+
+    <!-- Vasbeton padlásfödém – ásványgyapot szigetelés -->
+    <Construction
+      Id="Ceiling.AtticFloor.RC.GlassWool.250"
+      Type="Ceiling"
+      DisplayName="Padlásfödém: vasbeton + ásványgyapot 25 cm"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumRender"       Thickness="0.015" Description="Belső vakolat" />
+      <Layer Order="2" MaterialId="ReinforcedConcrete" Thickness="0.180" Description="Vasbeton szerkezet" />
+      <Layer Order="3" MaterialId="GlassWool"          Thickness="0.250" Description="Ásványgyapot fektetett hőszigetelés" />
+    </Construction>
+
+    <!-- Fafödémes padlásfödém (régi épület, felújítási alap) -->
+    <Construction
+      Id="Ceiling.AtticFloor.Timber.GlassWool.200"
+      Type="Ceiling"
+      DisplayName="Fa tartószerkezetű padlásfödém + ásványgyapot 20 cm"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumBoard"   Thickness="0.013" Description="Gipszkarton mennyezet" />
+      <Layer Order="2" MaterialId="Softwood"      Thickness="0.200" Description="Fa tartószerkezet (teljes keresztmetszetben számítva)" />
+      <Layer Order="3" MaterialId="GlassWool"     Thickness="0.200" Description="Ásványgyapot föléfektetés" />
+    </Construction>
+
+    <!-- ===================================================
+         TALAJON FEKVŐ PADLÓK (GroundFloor)
+         Megjegyzés: ISO 13370 módszerrel a U-érték külön számítandó.
+         Ez a sablon a rétegrendet mutatja; a b_u tényező a projekt szintjén kerül megadásra.
+         =================================================== -->
+
+    <Construction
+      Id="Floor.OnGround.RC.EPS100.80"
+      Type="GroundFloor"
+      DisplayName="Talajon fekvő padló: aljzatbeton + EPS100 8 cm + esztrich"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="CeramicTile"    Thickness="0.010" Description="Kerámia burkolat" />
+      <Layer Order="2" MaterialId="CementScreed"   Thickness="0.060" Description="Cementesztrich (padlófűtésnél vastagabb)" />
+      <Layer Order="3" MaterialId="EPS100"         Thickness="0.080" Description="Lépésálló polisztirol" />
+      <Layer Order="4" MaterialId="BituminousSheet" Thickness="0.004" Description="Talajnedvesség elleni szigetelés" />
+      <Layer Order="5" MaterialId="Concrete"       Thickness="0.100" Description="Aljzatbeton" />
+    </Construction>
+
+    <Construction
+      Id="Floor.OnGround.RC.EPS100.120"
+      Type="GroundFloor"
+      DisplayName="Talajon fekvő padló: aljzatbeton + EPS100 12 cm + esztrich"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="CeramicTile"    Thickness="0.010" />
+      <Layer Order="2" MaterialId="CementScreed"   Thickness="0.060" />
+      <Layer Order="3" MaterialId="EPS100"         Thickness="0.120" />
+      <Layer Order="4" MaterialId="BituminousSheet" Thickness="0.004" />
+      <Layer Order="5" MaterialId="Concrete"       Thickness="0.100" />
+    </Construction>
+
+    <!-- ===================================================
+         PINCEFAL (BasementWall)
+         =================================================== -->
+
+    <Construction
+      Id="Wall.Basement.RC.XPS.80"
+      Type="BasementWall"
+      DisplayName="Pincefal: vasbeton + külső XPS szigetelés 8 cm"
+      DataStatus="EngineeringDefault">
+      <Layer Order="1" MaterialId="GypsumRender"        Thickness="0.015" Description="Belső vakolat" />
+      <Layer Order="2" MaterialId="ReinforcedConcrete"  Thickness="0.250" Description="Vasbeton pincefal" />
+      <Layer Order="3" MaterialId="BituminousSheet"     Thickness="0.005" Description="Vízszigeteléss" />
+      <Layer Order="4" MaterialId="XPS"                 Thickness="0.080" Description="XPS lábazati szigetelés" />
+    </Construction>
+
+  </Constructions>
+</EngineeringData>

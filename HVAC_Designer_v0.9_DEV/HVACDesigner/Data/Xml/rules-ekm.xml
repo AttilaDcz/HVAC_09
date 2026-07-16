@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringRules Id="HU.EKM" Version="2023.1" SchemaVersion="1.0" DataType="RulePackage" Country="HU" DisplayName="ÉKM energetikai szabálycsomag" ValidFrom="2023-11-01">
+  <Dependencies><Dependency Id="Profiles.Building" MinVersion="1.0" /><Dependency Id="Climate.Design.HU" MinVersion="1.0" /></Dependencies>
+  <RuleSet Id="HU.EKM.Scope" Version="2023.1" Name="ÉKM hatály és alkalmazhatóság" Discipline="Shared" MethodId="EkmScopeAssessment"><Applicability Jurisdiction="HU" ValidFrom="2023-11-01" /><Parameters><Parameter Name="AssessmentPurpose.Default" Value="DesignCompliance" /></Parameters><References><Reference Designation="9/2023. (V. 25.) ÉKM rendelet" Title="Épületek energetikai jellemzőinek meghatározásáról" Edition="2023" Status="Active" Jurisdiction="HU" DocumentationText="Az energetikai követelmények és értékelés jogszabályi alapja." /></References></RuleSet>
+  <RuleSet Id="HU.EKM.Envelope" Version="2023.1" Name="Épületszerkezeti követelmények" Discipline="BuildingPhysics" MethodId="EnvelopeRequirementAssessment">
+    <Applicability Jurisdiction="HU" ValidFrom="2023-11-01" />
+    <Parameters>
+      <Parameter Name="ExternalWall.MaximumU" Value="0.20" />
+      <Parameter Name="FlatRoof.MaximumU" Value="0.17" />
+      <Parameter Name="FloorOnGround.MaximumU" Value="0.30" />
+      <Parameter Name="BasementFloor.MaximumU" Value="0.26" />
+      <Parameter Name="Window.MaximumU" Value="1.10" />
+      <Parameter Name="EntranceDoor.MaximumU" Value="1.40" />
+      <Parameter Name="IndustrialGate.MaximumU" Value="2.00" />
+      <Parameter Name="SeparatingWall.MaximumU" Value="0.40" />
+    </Parameters>
+  </RuleSet>
+  <RuleSet Id="HU.EKM.ThermalBridges" Version="2023.1" Name="Hőhídkezelési szabályok" Discipline="BuildingPhysics" MethodId="ThermalBridgeMethodSelection"><Applicability Jurisdiction="HU" ValidFrom="2023-11-01" /><Parameters><Parameter Name="AllowedMethod.PercentageAllowance" Value="true" /><Parameter Name="AllowedMethod.CatalogueValues" Value="true" /><Parameter Name="AllowedMethod.DetailedExternalResult" Value="true" /><Parameter Name="DefaultAllowance" Value="0.10" /></Parameters></RuleSet>
+  <RuleSet Id="HU.EKM.PrimaryEnergy" Version="2023.1" Name="Összesített energetikai jellemző" Discipline="BuildingEnergy" MethodId="PrimaryEnergyAssessment"><Applicability Jurisdiction="HU" ValidFrom="2023-11-01" /><Parameters><Parameter Name="MixedUse.WeightingMethod" Value="ConditionedFloorArea" /><Parameter Name="ResultDisplayName" Value="Összesített energetikai jellemző" /></Parameters></RuleSet>
+  <RuleSet Id="HU.EKM.Carbon" Version="2023.1" Name="Fajlagos szén-dioxid-kibocsátás" Discipline="BuildingEnergy" MethodId="CarbonAssessment"><Applicability Jurisdiction="HU" ValidFrom="2023-11-01" /><Parameters><Parameter Name="ResultDisplayName" Value="Fajlagos szén-dioxid-kibocsátás" /></Parameters></RuleSet>
+  <DesignMethod Id="Hungary.EKM" Version="2023.1" Name="Magyarország – ÉKM" Jurisdiction="HU" ValidFrom="2023-11-01" IsLegacy="false"><UseRuleSet Key="HU.EKM.Scope@2023.1" /><UseRuleSet Key="HU.EKM.Envelope@2023.1" /><UseRuleSet Key="HU.EKM.ThermalBridges@2023.1" /><UseRuleSet Key="HU.EKM.PrimaryEnergy@2023.1" /><UseRuleSet Key="HU.EKM.Carbon@2023.1" /></DesignMethod>
+</EngineeringRules>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MaterialCatalog>
+
+  <Category Name="Vakolatok és habarcsok">
+    <Material Id="1340" Name="Cementvakolat" Lambda="1.000" LambdaCorrection="1.00" Density="1800" SpecificHeat="1.00" Mu="10" />
+    <Material Id="1339" Name="Mészhomok vakolat" Lambda="0.800" LambdaCorrection="1.00" Density="1600" SpecificHeat="1.00" Mu="10" />
+    <Material Id="1337" Name="Gipszvakolat (belső gépi)" Lambda="0.570" LambdaCorrection="1.00" Density="1300" SpecificHeat="1.00" Mu="10" />
+    <Material Id="1341" Name="Nemes vakolat (külső homlokzati)" Lambda="0.990" LambdaCorrection="1.00" Density="1850" SpecificHeat="0.88" Mu="15" />
+  </Category>
+
+  <Category Name="Betonok és esztrichek">
+    <Material Id="1254" Name="Vasbeton (szerkezeti, 1% acél)" Lambda="2.300" LambdaCorrection="1.00" Density="2300" SpecificHeat="1.00" Mu="130" />
+    <Material Id="1253" Name="Kavicsbeton (aljzatbeton, esztrich)" Lambda="1.280" LambdaCorrection="1.00" Density="2200" SpecificHeat="0.84" Mu="100" />
+    <Material Id="1250" Name="Könnyűbeton (polisztirolbeton feltöltés)" Lambda="0.081" LambdaCorrection="1.00" Density="300" SpecificHeat="0.84" Mu="14" />
+  </Category>
+
+  <Category Name="Falazatok és szerkezeti anyagok">
+    <Material Id="3001" Name="Korszerű vázkerámia falazat (Porotherm + habarcs)" Lambda="0.160" LambdaCorrection="1.05" Density="800" SpecificHeat="1.00" Mu="10" />
+    <Material Id="3002" Name="Pórusbeton falazat (Ytong + vékonyágyas habarcs)" Lambda="0.120" LambdaCorrection="1.05" Density="450" SpecificHeat="1.00" Mu="10" />
+    <Material Id="3003" Name="Kisméretű tömör agyagtégla falazat (mészhabarccsal)" Lambda="0.810" LambdaCorrection="1.00" Density="1800" SpecificHeat="0.88" Mu="10" />
+    <Material Id="3004" Name="B30-as blokktégla falazat" Lambda="0.570" LambdaCorrection="1.05" Density="1100" SpecificHeat="0.88" Mu="10" />
+    <Material Id="3005" Name="Vályogfal szerkezet (szalmás)" Lambda="0.700" LambdaCorrection="1.10" Density="1600" SpecificHeat="1.00" Mu="8" />
+  </Category>
+
+  <Category Name="Faanyagok">
+    <Material Id="1365" Name="Fenyő fűrészáru (szarufa, fagerenda)" Lambda="0.130" LambdaCorrection="1.00" Density="500" SpecificHeat="1.60" Mu="50" />
+    <Material Id="1366" Name="Keményfa elemek (tölgy, bükk)" Lambda="0.180" LambdaCorrection="1.00" Density="700" SpecificHeat="1.60" Mu="200" />
+  </Category>
+
+  <Category Name="Hőszigetelések">
+    <Material Id="2001" Name="EPS Homlokzati polisztirol (fehér)" Lambda="0.038" LambdaCorrection="1.00" Density="15" SpecificHeat="1.46" Mu="40" />
+    <Material Id="2002" Name="Grafitos EPS homlokzati szigetelés" Lambda="0.031" LambdaCorrection="1.00" Density="16" SpecificHeat="1.46" Mu="40" />
+    <Material Id="2005" Name="EPS 100 Lépésálló polisztirol (talajon fekvő padlóba)" Lambda="0.037" LambdaCorrection="1.00" Density="20" SpecificHeat="1.46" Mu="70" />
+    <Material Id="1325" Name="XPS Extrudált polisztirol (lábazati / kerületi szigetelés)" Lambda="0.033" LambdaCorrection="1.00" Density="30" SpecificHeat="1.40" Mu="100" />
+    <Material Id="2003" Name="Kőzetgyapot hőszigetelő lemez (vakolható)" Lambda="0.035" LambdaCorrection="1.03" Density="40" SpecificHeat="1.00" Mu="1" />
+    <Material Id="2004" Name="Ásványgyapot paplan (szarufák közé, tetőtérbe)" Lambda="0.042" LambdaCorrection="1.05" Density="20" SpecificHeat="0.75" Mu="1" />
+  </Category>
+
+  <Category Name="Burkolatok">
+    <Material Id="1362" Name="Kerámiacsempe / greslap" Lambda="1.300" LambdaCorrection="1.00" Density="2300" SpecificHeat="0.84" Mu="200" />
+    <Material Id="1264" Name="Padlószőnyeg" Lambda="0.060" LambdaCorrection="1.00" Density="200" SpecificHeat="1.30" Mu="5" />
+    <Material Id="3105" Name="Laminált parketta (alátéttel együtt)" Lambda="0.140" LambdaCorrection="1.00" Density="800" SpecificHeat="1.70" Mu="50" />
+  </Category>
+
+  <Category Name="Szigetelő lemezek, fóliák">
+    <Material Id="3101" Name="Bitumenes nehézlemez (talajnedvesség ellen)" Lambda="0.230" LambdaCorrection="1.00" Density="1100" SpecificHeat="1.00" Mu="50000" />
+    <Material Id="3102" Name="Párazáró PE fólia (belső oldali, tetőtérbe)" Lambda="0.330" LambdaCorrection="1.00" Density="920" SpecificHeat="2.20" Mu="100000" />
+    <Material Id="3103" Name="Páraáteresztő tetőfólia (szélzáró, külső oldali)" Lambda="0.170" LambdaCorrection="1.00" Density="400" SpecificHeat="1.30" Mu="5" />
+  </Category>
+
+  <Category Name="Szabványos légrétegek">
+    <AirLayer Id="AIR_VERT_ZART" Name="Zárt légréteg (függőleges falban, d >= 25mm)" ThermalRes="0.18" />
+    <AirLayer Id="AIR_HORIZ_UP" Name="Zárt légréteg (vízszintes tetőben, felfelé hűlő)" ThermalRes="0.16" />
+    <AirLayer Id="AIR_VENTILATED" Name="Átszellőztetett légréteg (cseréptető alatt, erősen szellőző)" ThermalRes="0.04" />
+  </Category>
+
+  <Category Name="Ablak - Gyári Üvegezések">
+    <Glazing Id="GL_ALBA_2R" Name="ALBA THERM 4/16/4 (levegő töltés)" Ug="2.8" GValue="0.77" />
+    <Glazing Id="GL_ALBA_3R_AR" Name="ALBA THERM 4:/16/4/16/:4+Ar (3 rétegű Argon + LowE)" Ug="0.6" GValue="0.52" />
+  </Category>
+  <Category Name="Ablak - Profilok és Tokok">
+    <Frame Id="FR_PVC_MODERN" Name="Kömmerling / Rehau 6-7 kamrás középtömítéses PVC (88mm)" Uf="0.95" />
+    <Frame Id="FR_PVC_STANDARD" Name="Általános 5 kamrás PVC profil" Uf="1.30" />
+    <Frame Id="FR_WOOD_68" Name="Szabványos 68 mm-es puhafa keret" Uf="1.40" />
+  </Category>
+  <Category Name="Ablak - Perem távtartók">
+    <Spacer Id="SP_ALU" Name="Hagyományos alumínium távtartó sín" Psi="0.06" />
+    <Spacer Id="SP_WARMEDGE" Name="Műanyag alapú Warm-Edge melegperem" Psi="0.03" />
+  </Category>
+
+  <Category Name="Nyílászáró - Fix Default értékek">
+    <Default Id="DEF_ÉKM_MIN" Name="Új ablak (9/2023. ÉKM minimum elvárás)" Uw="1.1" GValue="0.50" />
+    <Default Id="DEF_GEREB" Name="Régi gerébtokos ablak (felméréshez)" Uw="3.5" GValue="0.75" />
+    <Default Id="DEF_PANEL_ABLAK" Name="70-es évekbeli szabványos panel ablak" Uw="2.8" GValue="0.72" />
+    <Default Id="DEF_DOOR_TÖMÖR" Name="Tömör fa vagy hőszigetelt acél külső ajtó" Uw="1.4" GValue="0.00" />
+    <Default Id="DEF_DOOR_ÜVEG" Name="Üvegezett bejárati ajtó (fa vagy PVC tokkal)" Uw="1.6" GValue="0.45" />
+  </Category>
+
+  <PredefinedStructures>
+    
+    <Structure Id="PRE_FAL_KADAR" Name="Kádár-kocka klasszikus külső fal (38-as tömör tégla)" Type="OutsideWall">
+      <Layer MaterialId="1339" Thickness="0.015" Name="Belső mészvakolat" />
+      <Layer MaterialId="3003" Thickness="0.380" Name="Kisméretű tömör agyagtégla falazat" />
+      <Layer MaterialId="1340" Thickness="0.020" Name="Külső cementes alapvakolat" />
+    </Structure>
+
+    <Structure Id="PRE_FAL_B30" Name="80-as évekbeli kockaház külső fal (B30-as tégla)" Type="OutsideWall">
+      <Layer MaterialId="1339" Thickness="0.015" Name="Belső mészvakolat" />
+      <Layer MaterialId="3004" Thickness="0.300" Name="B30-as blokktégla falazat" />
+      <Layer MaterialId="1340" Thickness="0.020" Name="Külső cementvakolat" />
+    </Structure>
+
+    <Structure Id="PRE_FAL_PANEL" Name="70-es évekbeli vasbeton szendvicspanel homlokzati fal" Type="OutsideWall">
+      <Layer MaterialId="1340" Thickness="0.010" Name="Belső cementvakolat" />
+      <Layer MaterialId="1254" Thickness="0.150" Name="Vasbeton teherhordó mag" />
+      <Layer MaterialId="2001" Thickness="0.070" Name="Korabeli korai PS hőszigetelés" />
+      <Layer MaterialId="1254" Thickness="0.055" Name="Külső vasbeton kéregelem" />
+      <Layer MaterialId="1341" Thickness="0.010" Name="Külső gyári nemes vakolat" />
+    </Structure>
+
+    <Structure Id="PRE_TETO_RECON" Name="Tetőtér-beépítés szarufák közti hőszigeteléssel és légréssel" Type="RoofUpward">
+      <Layer MaterialId="3102" Thickness="0.002" Name="Párazáró PE fólia (belső)" />
+      <Layer MaterialId="2004" Thickness="0.150" Name="Ásványgyapot szigetelés szarufák közt" />
+      <Layer MaterialId="3103" Thickness="0.001" Name="Páraáteresztő tetőfólia (külső)" />
+      <AirLayer Id="AIR_VENTILATED" Name="Átszellőztetett légréteg a cserépléc alatt" />
+    </Structure>
+
+    <Structure Id="PRE_PADLO_TALAJ" Name="Alsó pincézetlen talajon fekvő padló komplett rétegrendje" Type="FloorDownward">
+      <Layer MaterialId="3105" Thickness="0.010" Name="Laminált parketta burkolat" />
+      <Layer MaterialId="1253" Thickness="0.060" Name="Aljzatbeton (esztrich)" />
+      <Layer MaterialId="2005" Thickness="0.100" Name="Lépésálló EPS 100 hőszigetelés" />
+      <Layer MaterialId="3101" Thickness="0.004" Name="Bitumenes nehézlemez szigetelés" />
+      <Layer MaterialId="1254" Thickness="0.120" Name="Vasbeton szerelőbeton alap" />
+    </Structure>
+
+  </PredefinedStructures>
+
+	<Requirements LawReference="9/2023. (V. 25.) ÉKM" LastUpdated="2026-01-01">
+		<StructureRequirement Type="OutsideWall" Code="KF" Name="Külső fal" UMax="0.20" />
+		<StructureRequirement Type="InsideWall" Code="BF" Name="Belső fal" UMax="0.40" />
+		<StructureRequirement Type="Roof" Code="LT" Name="Lapostető / Födém" UMax="0.17" />
+		<StructureRequirement Type="BasementFloor" Code="PZ" Name="Pincefödém" UMax="0.26" />
+		<StructureRequirement Type="FloorOnGround" Code="PD" Name="Talajon fekvő padló" UMax="0.30" />
+		<StructureRequirement Type="Window" Code="NY" Name="Homlokzati nyílászáró" UMax="1.10" />
+		<StructureRequirement Type="Door" Code="BE" Name="Bejárati ajtó" UMax="1.40" />
+	</Requirements>
+
+</MaterialCatalog>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  rules-heating-load.xml
+  Fűtési hőterhelés számítási szabályok – EN 12831-1:2017 alapján.
+
+  Tartalom:
+  1. EN 12831 módszerparaméterek (infiltráció, felfűtési pótlék, stb.)
+  2. Hőhíd %-os ajánlások szerkezettípusonként
+  3. Szellőzési alapértékek
+
+  Megjegyzés a hőhíd-ajánlásokhoz:
+  - DefaultAllowance: az ÉKM rendelet 9/2023 szerinti alapértelmezett 10%
+  - RecommendedAllowance: mérnökileg megalapozott becslés szerkezettípus
+    és szigetelési szint alapján
+  - WarningThresholdU: e feletti U-érték esetén a kalkulátor ajánlás-
+    figyelmeztetést ad, és az ajánlott értéket javasolja
+  - Ezek NEM fix szabványi táblázati értékek, hanem mérnöki becslések.
+    Pontos számításhoz Ψ-katalógus (ISO 14683) vagy numerikus modell
+    (ISO 10211) szükséges.
+  - Forrás: EN 12831-1:2017, EN ISO 14683 Annex C konzervatív értékek,
+    kutatási adatok (hőhídarány 12-32%, ASHRAE, BRE), ÉMI iránymutatás.
+-->
+<EngineeringRules
+  Id="HU.HeatingLoad"
+  Version="1.0"
+  SchemaVersion="1.0"
+  DataType="RulePackage"
+  Country="HU"
+  DisplayName="Fűtési hőterhelés számítási szabályok (EN 12831)"
+  ValidFrom="2026-01-01">
+  <Dependencies>
+    <Dependency Id="HU.BuildingPhysics" MinVersion="1.0" />
+    <Dependency Id="Climate.Design.HU" MinVersion="1.0" />
+  </Dependencies>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EN 12831 MÓDSZERPARAMÉTEREK
+       ═══════════════════════════════════════════════════════════ -->
+  <RuleSet
+    Id="HU.HeatingLoad.MethodParameters"
+    Version="1.0"
+    Name="EN 12831 módszerparaméterek"
+    Discipline="BuildingPhysics"
+    MethodId="EN12831HeatingLoad">
+    <Applicability Jurisdiction="HU" ValidFrom="2026-01-01" />
+    <References>
+      <Reference
+        Designation="MSZ EN 12831-1:2017"
+        Title="Energy performance of buildings — Method for calculation of the design heating load — Part 1: Space heating load"
+        Edition="2017"
+        Status="Active"
+        Jurisdiction="HU" />
+    </References>
+    <Parameters>
+
+      <!-- Légsűrűség × fajhő szorzat [Wh/(m³K)] -->
+      <Parameter
+        Name="Air.VolumetricHeatCapacity"
+        Value="0.3400"
+        Unit="Wh/(m3K)"
+        Source="EN 12831-1:2017 §6.3.3.3"
+        DisplayName="Levegő térfogati hőkapacitása (ρ·cp)"
+        Notes="0.34 Wh/(m³K) = 1225 kg/m³ × 1006 J/(kgK) / 3600" />
+
+      <!-- ─────────────────────────────────────────────────
+           INFILTRÁCIÓ – alapértelmezett légcsere-számok
+           Pontos értéket BlowerDoor mérés ad (EN ISO 9972)
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="DefaultInfiltrationAch.NewConstruction"
+        Value="0.05"
+        Unit="h-1"
+        Source="EN 12831-1:2017 NA, engineering practice"
+        DisplayName="Légsziv. alapérték – új, tömített szerkezetű épület"
+        Notes="Megfelelő légzárás, BlowerDoor mérés nélkül konzervatív becslés." />
+      <Parameter
+        Name="DefaultInfiltrationAch.RecentConstruction"
+        Value="0.10"
+        Unit="h-1"
+        Source="Engineering practice"
+        DisplayName="Légsziv. alapérték – közelmúlt (1990 utáni) épület" />
+      <Parameter
+        Name="DefaultInfiltrationAch.LegacyConstruction"
+        Value="0.15"
+        Unit="h-1"
+        Source="Engineering practice"
+        DisplayName="Légsziv. alapérték – régi, tömítetlen épület (1990 előtt)"
+        Notes="Tömítetlen ablakkeretek, lyukacsos falazat esetén alkalmazható." />
+
+      <!-- ─────────────────────────────────────────────────
+           FELFŰTÉSI PÓTLÉK (Reheat correction factor)
+           EN 12831-1:2017 §6.3.6
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="ReheatFactor.Residential.8hSetback"
+        Value="1.10"
+        Unit="fraction"
+        Source="EN 12831-1:2017 §6.3.6, Table 4"
+        DisplayName="Felfűtési pótlék – lakás, 8 h megszakítás"
+        Notes="8 óra hőmérséklet-visszavétel (éjszakai setback), 2–3 K visszavétel." />
+      <Parameter
+        Name="ReheatFactor.Residential.NoContinuous"
+        Value="1.00"
+        Unit="fraction"
+        Source="EN 12831-1:2017"
+        DisplayName="Felfűtési pótlék – folyamatos fűtés (nincs megszakítás)" />
+      <Parameter
+        Name="ReheatFactor.Office.12hSetback"
+        Value="1.15"
+        Unit="fraction"
+        Source="EN 12831-1:2017 §6.3.6, Table 4"
+        DisplayName="Felfűtési pótlék – irodaépület, 12 h megszakítás"
+        Notes="Hétvégén vagy éjszaka leállított fűtés, gyors felfűtés szükséges." />
+      <Parameter
+        Name="ReheatFactor.School.Weekend"
+        Value="1.20"
+        Unit="fraction"
+        Source="EN 12831-1:2017 §6.3.6, Table 4"
+        DisplayName="Felfűtési pótlék – iskola/közintézmény, hétvégi leállás" />
+
+      <!-- ─────────────────────────────────────────────────
+           BELSŐ HŐMÉRSÉKLETEK ALAPÉRTÉKEI
+           (felülírható profil-szinten)
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="IndoorTemperature.Residential.Default"
+        Value="20.0"
+        Unit="degC"
+        Source="EN 12831-1:2017 §5.2, ÉKM 9/2023"
+        DisplayName="Tervezési belső hőmérséklet – lakás (alapérték)" />
+      <Parameter
+        Name="IndoorTemperature.Bathroom"
+        Value="24.0"
+        Unit="degC"
+        Source="EN 12831-1:2017 §5.2"
+        DisplayName="Tervezési belső hőmérséklet – fürdőszoba" />
+      <Parameter
+        Name="IndoorTemperature.Office"
+        Value="20.0"
+        Unit="degC"
+        Source="EN 12831-1:2017, EN 16798-1"
+        DisplayName="Tervezési belső hőmérséklet – iroda" />
+      <Parameter
+        Name="IndoorTemperature.Garage.Unheated"
+        Value="5.0"
+        Unit="degC"
+        Source="Engineering practice"
+        DisplayName="Nem fűtött garázs feltételezett hőmérséklete (b_u számításhoz)" />
+      <Parameter
+        Name="IndoorTemperature.Attic.Unheated"
+        Value="0.0"
+        Unit="degC"
+        Source="Engineering practice"
+        DisplayName="Nem fűtött padlástér feltételezett hőmérséklete (b_u számításhoz)"
+        Notes="Konzervatív becslés; valós értéke a külső hőmérséklettől függő." />
+
+      <!-- ─────────────────────────────────────────────────
+           SZELLŐZÉSI ALAPÉRTÉKEK (ha profil nem ad meg)
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="VentilationAch.Residential.Minimum"
+        Value="0.50"
+        Unit="h-1"
+        Source="EN 12831-1:2017, MSZ 04-140-2"
+        DisplayName="Minimális légcsere-szám – lakás" />
+      <Parameter
+        Name="VentilationAch.Office.Minimum"
+        Value="2.00"
+        Unit="h-1"
+        Source="EN 16798-1:2019"
+        DisplayName="Minimális légcsere-szám – iroda" />
+
+    </Parameters>
+  </RuleSet>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HŐHÍD %-OS AJÁNLÁSOK SZERKEZETTÍPUSONKÉNT
+       ═══════════════════════════════════════════════════════════ -->
+  <RuleSet
+    Id="HU.HeatingLoad.ThermalBridgeAllowances"
+    Version="1.0"
+    Name="Hőhíd %-os ajánlások szerkezettípusonként"
+    Discipline="BuildingPhysics"
+    MethodId="ThermalBridgePercentageAllowance">
+    <Applicability Jurisdiction="HU" ValidFrom="2026-01-01" />
+    <References>
+      <Reference
+        Designation="ÉKM 9/2023. (V. 25.)"
+        Title="Épületek energetikai jellemzőinek meghatározásáról"
+        Edition="2023"
+        Status="Active"
+        Jurisdiction="HU"
+        DocumentationText="10%-os alapértelmezett hőhíd-pótlék (DefaultAllowance)." />
+      <Reference
+        Designation="EN ISO 14683:2017 Annex C"
+        Title="Thermal bridges in building construction — Linear thermal transmittance"
+        Edition="2017"
+        Status="Active"
+        Jurisdiction="International"
+        DocumentationText="Konzervatív Ψ-értékek különböző csatlakozási típusokhoz." />
+      <Reference
+        Designation="BRE / ASHRAE kutatási adatok"
+        Title="Thermal bridge proportion of total heat loss"
+        Edition="2015-2020"
+        Status="Informative"
+        DocumentationText="Kutatások szerint a hőhíd-arány tipikusan 12-32% a teljes transzmissziós veszteségen belül, a szigetelési szinttől és épülettípustól függően." />
+    </References>
+
+    <!--
+      InsulationLevel értékek és határok (mérnöki becslés):
+        WellInsulated   : U ≤ WarningThresholdU → ajánlott pótlék = RecommendedAllowance
+        PoorlyInsulated : U > WarningThresholdU → kalkulátor figyelmeztetést ad
+
+      A kalkulátor logikája:
+        IF ConstructionUValue > WarningThresholdU:
+          → Figyelmeztetés az ajánlott pótlék alkalmazására
+        IF SelectedMethod == CatalogueValues:
+          → NotImplemented (hook kész, tartalom hiányzik, jövőbeli bővítmény)
+    -->
+    <ThermalBridgeAllowances>
+
+      <!-- KÜLSŐ FAL – jól szigetelt (ETICS, U kb. ≤ 0.25) -->
+      <Allowance
+        ConstructionType="ExternalWall"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.10"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.25"
+        Unit="fraction"
+        Source="EN 12831, ÉKM 9/2023"
+        Note="Jól szigetelt ETICS homlokzaton a hőhíd-arány tipikusan 10%. Az ÉKM alapértékkel megegyezik." />
+
+      <!-- KÜLSŐ FAL – gyengén szigetelt vagy szigeteletlen (U > 0.25 W/m²K) -->
+      <Allowance
+        ConstructionType="ExternalWall"
+        InsulationLevel="PoorlyInsulated"
+        RecommendedAllowance="0.25"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.50"
+        Unit="fraction"
+        Source="EN ISO 14683 Annex C, BRE/ASHRAE kutatás"
+        Note="Szigeteletlen vagy régi falszerkezetnél a hőhíd-arány 20-30% is lehet (ÉMI-ÉME iránymutatás, BRE kutatás alapján). Javasolt pontosabb Ψ-katalógus alkalmazása." />
+
+      <!-- PADLÁSFÖDÉM – jól szigetelt -->
+      <Allowance
+        ConstructionType="Ceiling"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.10"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.20"
+        Unit="fraction"
+        Source="EN 12831, mérnöki gyakorlat"
+        Note="Jól szigetelt padlásfödémnél a hőhíd főként a körbefutó falnál és gerendavégeknél adódik; tipikusan 10%." />
+
+      <!-- LAPOS TETŐ -->
+      <Allowance
+        ConstructionType="Roof"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.10"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.20"
+        Unit="fraction"
+        Source="EN 12831, mérnöki gyakorlat"
+        Note="Lapos tető – párkány és szellőző-csatlakozás hőhídjai; megfelelő kialakításnál 10%." />
+
+      <!-- FERDE TETŐ / MANSARD (tetőtér-beépítés) -->
+      <Allowance
+        ConstructionType="Slab"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.12"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.20"
+        Unit="fraction"
+        Source="Mérnöki becslés"
+        Note="Tetőtér-beépítésnél a szarufák közötti szigetelés körbehídjai kissé magasabb pótlékot indokolhatnak." />
+
+      <!-- TALAJON FEKVŐ PADLÓ -->
+      <Allowance
+        ConstructionType="GroundFloor"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.10"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.35"
+        Unit="fraction"
+        Source="EN 12831, ISO 13370"
+        Note="Talajon fekvő padlónál a kerületi hőhíd az elsődleges. Kerületi szigetelés nélkül a b_u tényező kezeli a csökkent hőmérsékletet; a hőhíd-arány 10% körüli." />
+
+      <!-- PINCEFAL -->
+      <Allowance
+        ConstructionType="BasementWall"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.15"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.30"
+        Unit="fraction"
+        Source="EN ISO 14683 Annex C, mérnöki becslés"
+        Note="Pincefalnál a lábazati csatlakozás (pince-alaplemez, pince-külső fal) jellemzően magasabb Ψ-értéket ad; 15% konzervatív becslés." />
+
+      <!-- BELSŐ ELVÁLASZTÓ FAL (fűtetlen tér felé) -->
+      <Allowance
+        ConstructionType="InternalWall"
+        InsulationLevel="WellInsulated"
+        RecommendedAllowance="0.05"
+        DefaultAllowance="0.10"
+        WarningThresholdU="0.40"
+        Unit="fraction"
+        Source="Mérnöki becslés"
+        Note="Belső falaknál a csatlakozási hőhíd kis mértékű; 5% általában elegendő." />
+
+    </ThermalBridgeAllowances>
+
+  </RuleSet>
+
+</EngineeringRules>

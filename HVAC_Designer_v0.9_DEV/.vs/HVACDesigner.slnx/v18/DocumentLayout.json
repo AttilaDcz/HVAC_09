@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\attil\\OneDrive\\Asztali g\u00E9p\\Tervez\u00E9s\\ALAP\\Programom\\HVAC_Designer_v0.9_DEV\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53BFD0A3-0A91-29FF-DA2F-41F4EFC30C2D}|HVACDesigner\\HVACDesigner.csproj|c:\\users\\attil\\onedrive\\asztali g\u00E9p\\tervez\u00E9s\\alap\\programom\\hvac_designer_v0.9_dev\\hvacdesigner\\tests\\integration\\water\\waterthirtyapartmentscenariotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BFD0A3-0A91-29FF-DA2F-41F4EFC30C2D}|HVACDesigner\\HVACDesigner.csproj|solutionrelative:hvacdesigner\\tests\\integration\\water\\waterthirtyapartmentscenariotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BFD0A3-0A91-29FF-DA2F-41F4EFC30C2D}|HVACDesigner\\HVACDesigner.csproj|c:\\users\\attil\\onedrive\\asztali g\u00E9p\\tervez\u00E9s\\alap\\programom\\hvac_designer_v0.9_dev\\hvacdesigner\\coreui\\workspace\\water\\waterdemandcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BFD0A3-0A91-29FF-DA2F-41F4EFC30C2D}|HVACDesigner\\HVACDesigner.csproj|solutionrelative:hvacdesigner\\coreui\\workspace\\water\\waterdemandcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WaterThirtyApartmentScenarioTests.cs",
+              "DocumentMoniker": "C:\\Users\\attil\\OneDrive\\Asztali g\u00E9p\\Tervez\u00E9s\\ALAP\\Programom\\HVAC_Designer_v0.9_DEV\\HVACDesigner\\Tests\\Integration\\Water\\WaterThirtyApartmentScenarioTests.cs",
+              "RelativeDocumentMoniker": "HVACDesigner\\Tests\\Integration\\Water\\WaterThirtyApartmentScenarioTests.cs",
+              "ToolTip": "C:\\Users\\attil\\OneDrive\\Asztali g\u00E9p\\Tervez\u00E9s\\ALAP\\Programom\\HVAC_Designer_v0.9_DEV\\HVACDesigner\\Tests\\Integration\\Water\\WaterThirtyApartmentScenarioTests.cs",
+              "RelativeToolTip": "HVACDesigner\\Tests\\Integration\\Water\\WaterThirtyApartmentScenarioTests.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAWwKsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-15T21:01:56.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WaterDemandControl.cs",
+              "DocumentMoniker": "C:\\Users\\attil\\OneDrive\\Asztali g\u00E9p\\Tervez\u00E9s\\ALAP\\Programom\\HVAC_Designer_v0.9_DEV\\HVACDesigner\\CoreUI\\Workspace\\Water\\WaterDemandControl.cs",
+              "RelativeDocumentMoniker": "HVACDesigner\\CoreUI\\Workspace\\Water\\WaterDemandControl.cs",
+              "ToolTip": "C:\\Users\\attil\\OneDrive\\Asztali g\u00E9p\\Tervez\u00E9s\\ALAP\\Programom\\HVAC_Designer_v0.9_DEV\\HVACDesigner\\CoreUI\\Workspace\\Water\\WaterDemandControl.cs",
+              "RelativeToolTip": "HVACDesigner\\CoreUI\\Workspace\\Water\\WaterDemandControl.cs",
+              "ViewState": "AgIAALEEAAAAAAAAAAAQwKMCAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-15T19:58:18.942Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EngineeringData Id="Mappings.Building" Version="1.0" SchemaVersion="1.0" DataType="MappingCatalog" Country="HU" DisplayName="Épületfunkció-leképezések" ValidFrom="2026-07-15">
+  <Dependencies>
+    <Dependency Id="Functions.Building" MinVersion="1.0" />
+    <Dependency Id="Profiles.Building" MinVersion="1.0" />
+  </Dependencies>
+  <Mappings>
+    <Mapping FunctionId="DetachedHouse" ProfileId="Residential.LowDensity" />
+    <Mapping FunctionId="ApartmentBuilding" ProfileId="Residential.MultiApartment" />
+    <Mapping FunctionId="StudentResidence" ProfileId="Residential.StudentResidence" />
+    <Mapping FunctionId="ElderlyResidence" ProfileId="Healthcare.ElderlyResidence" />
+    <Mapping FunctionId="Nursery" ProfileId="Childcare.Nursery" />
+    <Mapping FunctionId="Kindergarten" ProfileId="Childcare.Kindergarten" />
+    <Mapping FunctionId="School" ProfileId="Education.School" />
+    <Mapping FunctionId="University" ProfileId="Education.University" />
+    <Mapping FunctionId="Office" ProfileId="Office.General" />
+    <Mapping FunctionId="RetailShop" ProfileId="Retail.Shop" />
+    <Mapping FunctionId="Supermarket" ProfileId="Retail.Supermarket" />
+    <Mapping FunctionId="Hotel" ProfileId="Accommodation.Hotel" />
+    <Mapping FunctionId="Restaurant" ProfileId="Hospitality.Restaurant" />
+    <Mapping FunctionId="CommercialKitchen" ProfileId="Hospitality.CommercialKitchen" />
+    <Mapping FunctionId="MedicalPractice" ProfileId="Healthcare.MedicalPractice" />
+    <Mapping FunctionId="Hospital" ProfileId="Healthcare.Hospital" />
+    <Mapping FunctionId="SportsHall" ProfileId="Sports.Hall" />
+    <Mapping FunctionId="SwimmingPool" ProfileId="Sports.SwimmingPool" />
+    <Mapping FunctionId="IndustrialHall" ProfileId="Industrial.General" />
+    <Mapping FunctionId="Warehouse" ProfileId="Storage.General" />
+  </Mappings>
+</EngineeringData>

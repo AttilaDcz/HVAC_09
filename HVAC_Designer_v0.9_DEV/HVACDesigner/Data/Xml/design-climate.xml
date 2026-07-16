@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  design-climate.xml
+  Magyarországi tervezési klímaadatok.
+
+  Tartalom:
+  - Téli tervezési hőmérsékletek (EN 12831 méretezési alap)
+  - Nyári tervezési hőmérsékletek és sugárzási adatok (egyszerűsített csúcsterheléshez)
+  - RepresentativeCoolingHours: az ISO 52016-1 óránkénti számítás
+    belépési pontjaként (teljes TMY adatsor külön XML/CSV fájlban lesz)
+
+  Nyári adatok forrása:
+  - MSZ EN ISO 15927-5:2004 (szélsőséges napok statisztikája)
+  - OMSZ (Országos Meteorológiai Szolgálat) éghajlati normák
+  - ÉMI-TÜV SÜD épületenergetikai dokumentáció
+  - Értékek: tervezési csúcsnap (nyáron tipikusan július 21. környéke)
+
+  Napbesugárzási adatok:
+    SolarRadiation.* – globálsugárzás csúcsnapi átlag [W/m²]
+    tájolások: South, East, West, North, Horizontal
+    Ezek a SimplePeakCoolingLoadCalculator bemeneti adatai.
+    Az ISO 52016-1 óránkénti módszer órasoros adatokat igényel
+    (HourlyClimateSeriesId hivatkozás alapján).
+-->
+<EngineeringData
+  Id="Climate.Design.HU"
+  Version="2.0"
+  SchemaVersion="1.0"
+  DataType="Climate"
+  Country="HU"
+  DisplayName="Magyarországi tervezési klímaadatok"
+  ValidFrom="2026-01-01">
+  <Dependencies />
+
+  <DesignClimateCatalog>
+
+    <!-- ═══════════════════════════════════════════════════
+         BUDAPEST ÉS KÖZVETLEN KÖRNYEZETE
+         Forrás: OMSZ, MSZ EN ISO 15927-5, ÉKM 9/2023
+         ═══════════════════════════════════════════════════ -->
+    <Region
+      Id="HU.Budapest"
+      DisplayName="Budapest és közvetlen környezete"
+
+      HeatingOutdoorTemperature="-11"
+      HeatingUnit="degC"
+      HeatingNotes="ÉKM 9/2023 és korábbi magyar méretezési gyakorlat szerint."
+
+      CoolingOutdoorDryBulb="34"
+      CoolingOutdoorWetBulb="23"
+      CoolingUnit="degC"
+      DailyTemperatureRange="11"
+      CoolingNotes="MSZ EN ISO 15927-5 alapján tervezési csúcsnap; OMSZ hosszú távú átlag."
+
+      SolarRadiation_South_Wm2="420"
+      SolarRadiation_East_Wm2="340"
+      SolarRadiation_West_Wm2="340"
+      SolarRadiation_North_Wm2="130"
+      SolarRadiation_Horizontal_Wm2="580"
+      SolarRadiationUnit="W/m2"
+      SolarRadiationNotes="Napi átlagos csúcssugárzás tervezési csúcsnapon (július 21. körül)."
+
+      HourlyClimateSeriesId=""
+      DataStatus="EngineeringDefault" />
+
+    <!-- ═══════════════════════════════════════════════════
+         ÁLTALÁNOS MAGYARORSZÁGI -13 °C-OS RÉGIÓ
+         (Dunántúl és Alföld nagyobb része)
+         ═══════════════════════════════════════════════════ -->
+    <Region
+      Id="HU.Zone13"
+      DisplayName="Általános magyarországi -13 °C-os tervezési régió"
+
+      HeatingOutdoorTemperature="-13"
+      HeatingUnit="degC"
+      HeatingNotes="Az ország jelentős részére alkalmazható."
+
+      CoolingOutdoorDryBulb="34"
+      CoolingOutdoorWetBulb="22"
+      CoolingUnit="degC"
+      DailyTemperatureRange="12"
+      CoolingNotes="Alföldre és Dunántúlra jellemző nyári csúcsérték."
+
+      SolarRadiation_South_Wm2="430"
+      SolarRadiation_East_Wm2="350"
+      SolarRadiation_West_Wm2="350"
+      SolarRadiation_North_Wm2="135"
+      SolarRadiation_Horizontal_Wm2="590"
+      SolarRadiationUnit="W/m2"
+
+      HourlyClimateSeriesId=""
+      DataStatus="EngineeringDefault" />
+
+    <!-- ═══════════════════════════════════════════════════
+         HIDEGEBB MAGYARORSZÁGI -15 °C-OS RÉGIÓ
+         (Északi-Középhegység, Zala, Vas megye)
+         ═══════════════════════════════════════════════════ -->
+    <Region
+      Id="HU.Zone15"
+      DisplayName="Hidegebb magyarországi -15 °C-os tervezési régió"
+
+      HeatingOutdoorTemperature="-15"
+      HeatingUnit="degC"
+      HeatingNotes="Hidegebb térségek mintarégiója."
+
+      CoolingOutdoorDryBulb="32"
+      CoolingOutdoorWetBulb="21"
+      CoolingUnit="degC"
+      DailyTemperatureRange="12"
+      CoolingNotes="Hegyvidéki térségekre jellemzően kisebb csúcshőmérséklet."
+
+      SolarRadiation_South_Wm2="400"
+      SolarRadiation_East_Wm2="320"
+      SolarRadiation_West_Wm2="320"
+      SolarRadiation_North_Wm2="120"
+      SolarRadiation_Horizontal_Wm2="550"
+      SolarRadiationUnit="W/m2"
+
+      HourlyClimateSeriesId=""
+      DataStatus="EngineeringDefault" />
+
+  </DesignClimateCatalog>
+
+  <!--
+    HourlyClimateSeriesId mező jövőbeli kitöltési útmutató:
+    Az ISO 52016-1 óránkénti számításhoz TMY (Test Meteorological Year)
+    adatsor szükséges. Tervezett formátum: külön XML vagy CSV fájl,
+    pl. "climate-tmY-HU-Budapest.csv" – 8760 sor, óránkénti T, G_sol, RH adatokkal.
+    A HourlyClimateSeriesId egyedi azonosítóra mutat majd abban a fájlban.
+  -->
+
+</EngineeringData>

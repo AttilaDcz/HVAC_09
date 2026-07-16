@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EngineeringRules Id="HU.Water" Version="1.1" SchemaVersion="1.0" DataType="RulePackage" Country="HU" DisplayName="Magyar vízellátási és csatornázási szabálycsomag" ValidFrom="2026-07-15">
+  <Dependencies>
+    <Dependency Id="Catalog.Fixtures" MinVersion="1.0" />
+    <Dependency Id="Profiles.Building" MinVersion="1.0" />
+  </Dependencies>
+  <RuleSet Id="HU.Water.DailyDemand" Version="1.1" Name="Napi ivóvízigény" Discipline="WaterSupply" MethodId="DailyWaterDemandByUseProfile">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="AllowedMethod.PerPerson" Value="true" />
+      <Parameter Name="AllowedMethod.PerDwelling" Value="true" />
+      <Parameter Name="AllowedMethod.PerBed" Value="true" />
+      <Parameter Name="AllowedMethod.PerGuest" Value="true" />
+      <Parameter Name="AllowedMethod.PerMeal" Value="true" />
+      <Parameter Name="AllowedMethod.UserDefined" Value="true" />
+      <Parameter Name="ResultDisplayName" Value="Napi ivóvízigény" />
+      <Parameter Name="DataStatus" Value="EngineeringDefault" />
+      <Parameter Name="Description.DailyWaterPerPerson" Value="Napi fajlagos ivóvízigény" />
+      <Parameter Name="Limit.DailyWaterPerPerson.Max" Value="150" />
+      <Parameter Name="Limit.DailyWaterPerPerson.Min" Value="60" />
+      <Parameter Name="Recommendation.DailyWaterPerPerson.Max" Value="A napi fajlagos vízigény meghaladja a szokásos lakossági felső határt (150 L/nap). Vizsgálja felül a létszámot vagy tervezzen be víztakarékos perlátorokat." />
+      <Parameter Name="Recommendation.DailyWaterPerPerson.Min" Value="A napi fajlagos vízigény alacsonyabb a szokásos minimumnál (60 L/nap). Győződjön meg a méretezési adatok helyességéről." />
+    </Parameters>
+  </RuleSet>
+  <RuleSet Id="HU.Water.PeakDemand" Version="1.1" Name="Mértékadó ivóvízhozam" Discipline="WaterSupply" MethodId="En806Compatible">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="FixtureCatalogId" Value="Catalog.Fixtures" />
+      <Parameter Name="Conversion.A" Value="0.20" />
+      <Parameter Name="Conversion.Exponent" Value="0.50" />
+      <Parameter Name="Conversion.Offset" Value="0.00" />
+      <Parameter Name="ResultDisplayName" Value="Mértékadó ivóvízhozam" />
+      <Parameter Name="DataStatus" Value="MvpSampleOnly" />
+    </Parameters>
+    <References>
+      <Reference Designation="MSZ EN 806" Status="Active" Jurisdiction="HU" DocumentationText="Épületen belüli ivóvízhálózat tervezési háttere. A konverziós paraméterek továbbra is MVP tesztadatok." />
+    </References>
+  </RuleSet>
+  <RuleSet Id="HU.Water.Wastewater" Version="1.1" Name="Mértékadó szennyvízhozam" Discipline="Drainage" MethodId="En12056DischargeUnits">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="FixtureCatalogId" Value="Catalog.Fixtures" />
+      <Parameter Name="SystemType.Residential.FrequencyFactor" Value="0.50" />
+      <Parameter Name="SystemType.Office.FrequencyFactor" Value="0.50" />
+      <Parameter Name="SystemType.Childcare.FrequencyFactor" Value="0.70" />
+      <Parameter Name="SystemType.Education.FrequencyFactor" Value="0.70" />
+      <Parameter Name="SystemType.Retail.FrequencyFactor" Value="0.70" />
+      <Parameter Name="SystemType.Accommodation.FrequencyFactor" Value="0.70" />
+      <Parameter Name="SystemType.Healthcare.FrequencyFactor" Value="0.70" />
+      <Parameter Name="SystemType.Hospitality.FrequencyFactor" Value="1.00" />
+      <Parameter Name="SystemType.Sports.FrequencyFactor" Value="1.00" />
+      <Parameter Name="SystemType.Industrial.FrequencyFactor" Value="1.00" />
+      <Parameter Name="SystemType.Storage.FrequencyFactor" Value="0.50" />
+      <Parameter Name="ContinuousFlow.Default" Value="0.00" />
+      <Parameter Name="PumpedFlow.Default" Value="0.00" />
+      <Parameter Name="ResultDisplayName" Value="Mértékadó szennyvízhozam" />
+      <Parameter Name="DataStatus" Value="MvpReviewed" />
+      <Parameter Name="Description.WastewaterPeak" Value="Mértékadó szennyvízhozam" />
+      <Parameter Name="Limit.WastewaterPeak.Max" Value="15.0" />
+      <Parameter Name="Recommendation.WastewaterPeak.Max" Value="A csúcs szennyvízhozam igen magas. Kérjük, ellenőrizze a főgyűjtő csatorna lejtését és a DN átmérő méretezést a dugulás/visszatorlódás elkerülésére." />
+    </Parameters>
+    <References>
+      <Reference Designation="MSZ EN 12056-2:2001" Status="Active" Jurisdiction="HU" DocumentationText="Épületen belüli gravitációs szennyvízelvezetés. A gyakorisági csoportok mérnöki előbeállítások, szabványellenőrzés szükséges." />
+    </References>
+  </RuleSet>
+  <RuleSet Id="HU.Water.RoofDrainage" Version="1.1" Name="Tetővíz mértékadó térfogatárama" Discipline="Drainage" MethodId="RoofRunoffFlow">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="CalculationMode" Value="AreaTimesRunoffTimesRainfall" />
+      <Parameter Name="DefaultRunoffCoefficient.FlatRoof" Value="1.00" />
+      <Parameter Name="DefaultRunoffCoefficient.PitchedRoof" Value="1.00" />
+      <Parameter Name="DefaultRunoffCoefficient.GreenRoof" Value="0.50" />
+      <Parameter Name="DefaultRainfallIntensity" Value="0.03" />
+      <Parameter Name="ResultDisplayName" Value="Tetővíz mértékadó térfogatárama" />
+      <Parameter Name="DataStatus" Value="MvpReviewed" />
+      <Parameter Name="Description.RainfallIntensity" Value="Mértékadó esőintenzitás" />
+      <Parameter Name="Limit.RainfallIntensity.Max" Value="0.04" />
+      <Parameter Name="Limit.RainfallIntensity.Min" Value="0.02" />
+      <Parameter Name="Recommendation.RainfallIntensity.Max" Value="Az intenzitás rendkívüli csapadékterhelést feltételez. Gondoskodjon szükséghelyzeti biztonsági túlfolyó tervezéséről." />
+      <Parameter Name="Recommendation.RainfallIntensity.Min" Value="A tervezési csapadékintenzitás elmarad a hazai szabványos 0.03 l/(s*m²) értéktől. Ellenőrizze a helyi tervezési előírásokat." />
+    </Parameters>
+    <References>
+      <Reference Designation="MSZ EN 12056-3" Status="Active" Jurisdiction="HU" DocumentationText="Gravitációs tetővíz-elvezetés számítási háttere." />
+    </References>
+  </RuleSet>
+  <RuleSet Id="HU.Water.Greywater" Version="1.1" Name="Szürkevíz vízmérleg" Discipline="WaterSupply" MethodId="GreywaterDailyBalance">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="EnabledByDefault" Value="false" />
+      <Parameter Name="AllowedSource.Shower" Value="true" />
+      <Parameter Name="AllowedSource.Bath" Value="true" />
+      <Parameter Name="AllowedSource.WashBasin" Value="true" />
+      <Parameter Name="AllowedSource.WashingMachine" Value="true" />
+      <Parameter Name="ConditionalSource.KitchenSink" Value="true" />
+      <Parameter Name="AllowedDemand.WCWithCistern" Value="true" />
+      <Parameter Name="AllowedDemand.Urinal" Value="true" />
+      <Parameter Name="ResultDisplayName" Value="Hasznosítható szürkevíz napi mennyisége" />
+      <Parameter Name="DataStatus" Value="MvpReviewed" />
+    </Parameters>
+    <References>
+      <Reference Designation="MSZ EN 16941-2" Status="Active" Jurisdiction="HU" DocumentationText="Kezelt szürkevíz nem ivóvíz-célú helyszíni alkalmazása." />
+    </References>
+  </RuleSet>
+  <RuleSet Id="HU.Water.DhwDemand" Version="1.1" Name="Napi használati melegvíz igény" Discipline="WaterSupply" MethodId="DhwEnergyDemandByUseProfile">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="DhwReferenceTemperature" Value="60.0" />
+      <Parameter Name="ColdWaterReferenceTemperature" Value="10.0" />
+      <Parameter Name="WaterSpecificHeatCapacity" Value="4.187" /> <!-- kJ/(kg*K) -->
+      <Parameter Name="WaterDensity" Value="1.0" /> <!-- kg/L -->
+      <Parameter Name="ResultDisplayName" Value="Használati melegvíz igény" />
+      <Parameter Name="DataStatus" Value="MvpReviewed" />
+      <Parameter Name="Description.DailyHotWaterPerPerson" Value="Napi fajlagos melegvízigény" />
+      <Parameter Name="Limit.DailyHotWaterPerPerson.Max" Value="50" />
+      <Parameter Name="Limit.DailyHotWaterPerPerson.Min" Value="20" />
+      <Parameter Name="Recommendation.DailyHotWaterPerPerson.Max" Value="A melegvíz igény kiugróan magas. Érdemes megfontolni helyi zuhany-hővisszanyerő berendezés vagy megújuló energiaforrás alkalmazását." />
+      <Parameter Name="Recommendation.DailyHotWaterPerPerson.Min" Value="A fajlagos melegvízigény rendkívül alacsony. Győződjön meg a komfortkövetelmények meglétéről." />
+    </Parameters>
+    <References>
+      <Reference Designation="MSZ EN 12831-3:2017" Status="Active" Jurisdiction="HU" DocumentationText="HMV rendszerek hőszükségletének meghatározása." />
+      <Reference Designation="9/2023. (V. 25.) ÉKM rendelet" Status="Active" Jurisdiction="HU" DocumentationText="Napi melegvíz és fűtési energiaigények meghatározása." />
+    </References>
+  </RuleSet>
+  <DesignMethod Id="Hungary.Water" Version="1.1" Name="Magyarország – vízellátás és csatornázás" Jurisdiction="HU" IsLegacy="false">
+    <UseRuleSet Key="HU.Water.DailyDemand@1.1" />
+    <UseRuleSet Key="HU.Water.PeakDemand@1.1" />
+    <UseRuleSet Key="HU.Water.Wastewater@1.1" />
+    <UseRuleSet Key="HU.Water.RoofDrainage@1.1" />
+    <UseRuleSet Key="HU.Water.Greywater@1.1" />
+    <UseRuleSet Key="HU.Water.DhwDemand@1.1" />
+  </DesignMethod>
+</EngineeringRules>

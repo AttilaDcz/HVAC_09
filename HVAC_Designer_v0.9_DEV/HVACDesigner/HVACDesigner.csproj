@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+<Version>0.4.0</Version>
+<AssemblyVersion>0.4.0.0</AssemblyVersion>
+<FileVersion>0.4.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Xml\**\*.xml" />
+    <None Remove="ductdata.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Xml\**\*.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Svg\**\*.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QuestPDF" Version="2026.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Calculations\Heating\" />
+    <Folder Include="Calculations\Energetics\" />
+    <Folder Include="CoreUI\Components\Engineering\" />
+    <Folder Include="CoreUI\Workspace\Sanitary\" />
+    <Folder Include="CoreUI\Workspace\ThermalHydraulics\" />
+    <Folder Include="Data\Project\" />
+    <Folder Include="Resources\Icons\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Services\Export\" />
+    <Folder Include="Services\Import\" />
+    <Folder Include="Services\SaveLoad\" />
+    <Folder Include="Services\Print\" />
+  </ItemGroup>
+
+</Project>

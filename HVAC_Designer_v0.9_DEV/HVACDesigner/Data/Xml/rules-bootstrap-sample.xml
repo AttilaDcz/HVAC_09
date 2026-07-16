@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringRules PackageId="HU-RULES" Version="1.0">
+  <RuleSet Id="HU.Sample" Version="1.0"
+      Name="Minta szabálycsomag" Discipline="Shared"
+      MethodId="SampleMethod">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="Sample.Value" Value="1.0" />
+    </Parameters>
+  </RuleSet>
+  <DesignMethod Id="Hungary.Sample" Version="1.0"
+      Name="Magyarország – minta" Jurisdiction="HU">
+    <UseRuleSet Key="HU.Sample@1.0" />
+  </DesignMethod>
+</EngineeringRules>

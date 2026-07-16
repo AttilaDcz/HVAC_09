@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  rules-cooling-load.xml
+  Nyári hűtési hőterhelés számítási szabályok.
+
+  Két számítási módszer alapjai:
+  1. SimplePeakLoad – egyszerűsített csúcsterhelés (WinWatt-szerű, kvázistacioner)
+     Azonnali implementáció; az összes paraméter ebből olvas.
+  2. HourlyISO52016 – ISO 52016-1 RC-modell alapú óránkénti számítás (hook)
+     Az adatszerkezetek elkészülnek, implementáció következő fázisban.
+
+  Forrás:
+  - MSZ EN ISO 52016-1:2017 (óránkénti módszer alapelvek)
+  - CIBSE Guide A: Environmental Design (csúcsterhelés módszer)
+  - EN 16798-1:2019 / MSZ EN 15251 (belső hőterhelések)
+  - MSZ EN ISO 15927-5 (nyári tervezési klímaadatok alapelvei)
+-->
+<EngineeringRules
+  Id="HU.CoolingLoad"
+  Version="1.0"
+  SchemaVersion="1.0"
+  DataType="RulePackage"
+  Country="HU"
+  DisplayName="Nyári hűtési hőterhelés számítási szabályok"
+  ValidFrom="2026-01-01">
+  <Dependencies>
+    <Dependency Id="HU.BuildingPhysics" MinVersion="1.0" />
+    <Dependency Id="Climate.Design.HU" MinVersion="1.0" />
+  </Dependencies>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EGYSZERŰSÍTETT CSÚCSTERHELÉS PARAMÉTEREK
+       (SimplePeakLoad módszer)
+       ═══════════════════════════════════════════════════════════ -->
+  <RuleSet
+    Id="HU.CoolingLoad.SimplePeak"
+    Version="1.0"
+    Name="Egyszerűsített nyári csúcsterhelés paraméterek"
+    Discipline="BuildingPhysics"
+    MethodId="SimplePeakCoolingLoad">
+    <Applicability Jurisdiction="HU" ValidFrom="2026-01-01" />
+    <References>
+      <Reference
+        Designation="CIBSE Guide A: Environmental Design"
+        Title="Chapter 5: Thermal response and plant sizing"
+        Edition="2015"
+        Status="Active"
+        Jurisdiction="International"
+        DocumentationText="Egyszerűsített csúcsterhelés módszer alapelvei." />
+      <Reference
+        Designation="EN 16798-1:2019"
+        Title="Energy performance of buildings — Ventilation for buildings"
+        Edition="2019"
+        Status="Active"
+        Jurisdiction="EU" />
+    </References>
+    <Parameters>
+
+      <!-- Levegő volumetrikus hőkapacitás -->
+      <Parameter
+        Name="Air.VolumetricHeatCapacity"
+        Value="0.3400"
+        Unit="Wh/(m3K)"
+        Source="Anyagállandó"
+        DisplayName="Levegő térfogati hőkapacitása (ρ·cp)" />
+
+      <!-- ─────────────────────────────────────────────────
+           ÁRNYÉKOLÓ TÉNYEZŐK
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="ShadingFactor.None"
+        Value="1.00"
+        Unit="fraction"
+        Source="Engineering default"
+        DisplayName="Árnyékolás nélkül – teljes napbesugárzás" />
+      <Parameter
+        Name="ShadingFactor.Internal.LightBlind"
+        Value="0.75"
+        Unit="fraction"
+        Source="CIBSE Guide A, Table 5.3"
+        DisplayName="Belső világos redőny / rolóvászon"
+        Notes="A g-értéket csökkenti, de a belső hőterhelés marad." />
+      <Parameter
+        Name="ShadingFactor.Internal.DarkBlind"
+        Value="0.65"
+        Unit="fraction"
+        Source="CIBSE Guide A, Table 5.3"
+        DisplayName="Belső sötét redőny" />
+      <Parameter
+        Name="ShadingFactor.External.LightBlind"
+        Value="0.25"
+        Unit="fraction"
+        Source="CIBSE Guide A, Table 5.3"
+        DisplayName="Külső világos redőny / napvédő ernyő"
+        Notes="Hatékony árnyékolás: a hőnyereség nagy részét megakadályozza." />
+      <Parameter
+        Name="ShadingFactor.External.DarkBlind"
+        Value="0.20"
+        Unit="fraction"
+        Source="CIBSE Guide A, Table 5.3"
+        DisplayName="Külső sötét redőny / lamella" />
+      <Parameter
+        Name="ShadingFactor.External.Overhang"
+        Value="0.40"
+        Unit="fraction"
+        Source="CIBSE Guide A"
+        DisplayName="Ereszpárkány árnyékolás (dél)"
+        Notes="Nyáron hatékony déli irányban; tavasszal/ősszel kevésbé." />
+
+      <!-- ─────────────────────────────────────────────────
+           EGYIDEJŰSÉGI TÉNYEZŐK
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="OccupancyConcurrencyFactor.Residential"
+        Value="1.00"
+        Unit="fraction"
+        Source="Engineering default"
+        DisplayName="Jelenlét egyidejűségi tényező – lakás" />
+      <Parameter
+        Name="OccupancyConcurrencyFactor.Office"
+        Value="0.85"
+        Unit="fraction"
+        Source="EN 16798-1, CIBSE"
+        DisplayName="Jelenlét egyidejűségi tényező – iroda" />
+      <Parameter
+        Name="OccupancyConcurrencyFactor.School"
+        Value="0.90"
+        Unit="fraction"
+        Source="Engineering default"
+        DisplayName="Jelenlét egyidejűségi tényező – iskola" />
+      <Parameter
+        Name="OccupancyConcurrencyFactor.Retail"
+        Value="0.70"
+        Unit="fraction"
+        Source="CIBSE Guide A"
+        DisplayName="Jelenlét egyidejűségi tényező – üzlet/kereskedés" />
+
+      <!-- ─────────────────────────────────────────────────
+           BELSŐ HŐTERHELÉSEK ALAPÉRTÉKEI
+           (profil-szinten felülírható)
+           ───────────────────────────────────────────────── -->
+      <Parameter
+        Name="InternalHeatGain.SensiblePerPerson.Sedentary"
+        Value="75"
+        Unit="W/person"
+        Source="EN 16798-1:2019 Annex C, Table C.4"
+        DisplayName="Érzékelhető hőleadás – ülőmunka (irodai, lakás)"
+        Notes="Tevékenységi szint: 1.2 MET. Teljes leadás: ~130 W, érzékelhető: 75 W." />
+      <Parameter
+        Name="InternalHeatGain.LatentPerPerson.Sedentary"
+        Value="55"
+        Unit="W/person"
+        Source="EN 16798-1:2019 Annex C, Table C.4"
+        DisplayName="Látens hőleadás – ülőmunka" />
+      <Parameter
+        Name="InternalHeatGain.SensiblePerPerson.LightWork"
+        Value="85"
+        Unit="W/person"
+        Source="EN 16798-1:2019"
+        DisplayName="Érzékelhető hőleadás – könnyű fizikai munka (iskolai, kiskereskedelmi)" />
+      <Parameter
+        Name="InternalHeatGain.LatentPerPerson.LightWork"
+        Value="75"
+        Unit="W/person"
+        Source="EN 16798-1:2019"
+        DisplayName="Látens hőleadás – könnyű fizikai munka" />
+
+      <!-- Fajlagos megvilágítási teljesítmény (LPD) -->
+      <Parameter
+        Name="LightingPowerDensity.Office"
+        Value="8"
+        Unit="W/m2"
+        Source="EN 16798-1:2019 Table B.6"
+        DisplayName="Megvilágítási teljesítmény – iroda (LED)"
+        Notes="LED-izzós irodára jellemző. Régi épületnél 12-15 W/m²." />
+      <Parameter
+        Name="LightingPowerDensity.Residential"
+        Value="4"
+        Unit="W/m2"
+        Source="Engineering default"
+        DisplayName="Megvilágítási teljesítmény – lakás" />
+      <Parameter
+        Name="LightingPowerDensity.School"
+        Value="10"
+        Unit="W/m2"
+        Source="EN 16798-1:2019"
+        DisplayName="Megvilágítási teljesítmény – iskola/tanterem" />
+      <Parameter
+        Name="LightingPowerDensity.Retail"
+        Value="15"
+        Unit="W/m2"
+        Source="EN 16798-1:2019"
+        DisplayName="Megvilágítási teljesítmény – üzlet, kereskedés" />
+
+      <!-- Fajlagos berendezési teljesítmény (EPD) -->
+      <Parameter
+        Name="EquipmentPowerDensity.Office"
+        Value="15"
+        Unit="W/m2"
+        Source="CIBSE Guide A, Table 6.2"
+        DisplayName="Berendezési hőterhelés – iroda (PC, nyomtató, stb.)" />
+      <Parameter
+        Name="EquipmentPowerDensity.Residential"
+        Value="4"
+        Unit="W/m2"
+        Source="Engineering default"
+        DisplayName="Berendezési hőterhelés – lakás" />
+      <Parameter
+        Name="EquipmentPowerDensity.School"
+        Value="6"
+        Unit="W/m2"
+        Source="EN 16798-1:2019"
+        DisplayName="Berendezési hőterhelés – iskola" />
+
+    </Parameters>
+  </RuleSet>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ISO 52016-1 ÓRÁNKÉNTI MÓDSZER ALAPPARAMÉTEREK (hook)
+       Az implementáció egy következő fejlesztési fázisban készül el.
+       ═══════════════════════════════════════════════════════════ -->
+  <RuleSet
+    Id="HU.CoolingLoad.HourlyISO52016"
+    Version="1.0"
+    Name="ISO 52016-1 óránkénti módszer alapparaméterek (hook)"
+    Discipline="BuildingPhysics"
+    MethodId="HourlyISO52016CoolingLoad"
+    ImplementationStatus="PlannedFuturePhase">
+    <Applicability Jurisdiction="HU" ValidFrom="2026-01-01" />
+    <References>
+      <Reference
+        Designation="MSZ EN ISO 52016-1:2017"
+        Title="Energy performance of buildings — Energy needs for heating and cooling"
+        Edition="2017"
+        Status="Active"
+        Jurisdiction="EU"
+        DocumentationText="Óránkénti RC-hálózati modell (5R1C). Az IHourlyCoolingLoadCalculator interfész ezt az alapelvet követi." />
+    </References>
+    <Parameters>
+
+      <!-- Hőtároló tömeg osztályok (ISO 52016-1 §6.5.6 Table 12) -->
+      <Parameter
+        Name="ThermalMassClass.VeryLight.kJ_m2K"
+        Value="80"
+        Unit="kJ/(m2K)"
+        Source="ISO 52016-1:2017 §6.5.6 Table 12"
+        DisplayName="Hőtároló tömeg – nagyon könnyű (keret- és sátorszerkezet)" />
+      <Parameter
+        Name="ThermalMassClass.Light.kJ_m2K"
+        Value="110"
+        Unit="kJ/(m2K)"
+        Source="ISO 52016-1:2017 §6.5.6 Table 12"
+        DisplayName="Hőtároló tömeg – könnyű (könnyűszerkezetes)" />
+      <Parameter
+        Name="ThermalMassClass.Medium.kJ_m2K"
+        Value="165"
+        Unit="kJ/(m2K)"
+        Source="ISO 52016-1:2017 §6.5.6 Table 12"
+        DisplayName="Hőtároló tömeg – közepes (vegyes szerkezet)" />
+      <Parameter
+        Name="ThermalMassClass.Heavy.kJ_m2K"
+        Value="260"
+        Unit="kJ/(m2K)"
+        Source="ISO 52016-1:2017 §6.5.6 Table 12"
+        DisplayName="Hőtároló tömeg – nehéz (masszív falazat, vasbeton)" />
+      <Parameter
+        Name="ThermalMassClass.VeryHeavy.kJ_m2K"
+        Value="370"
+        Unit="kJ/(m2K)"
+        Source="ISO 52016-1:2017 §6.5.6 Table 12"
+        DisplayName="Hőtároló tömeg – nagyon nehéz (tömbvasbeton, kő)" />
+
+      <!-- RC-modell 5R1C – ellenállás-kapacitás modell konstansai -->
+      <Parameter
+        Name="RcModel.CouplingFactor.Am_Af.VeryLight"
+        Value="2.5"
+        Unit="m2/m2"
+        Source="ISO 52016-1:2017 Table 12"
+        DisplayName="Am/Af faktor – nagyon könnyű szerkezet"
+        Notes="Am = effektív tömegfelület, Af = alapterület." />
+      <Parameter
+        Name="RcModel.CouplingFactor.Am_Af.Light"
+        Value="2.5"
+        Unit="m2/m2"
+        Source="ISO 52016-1:2017 Table 12"
+        DisplayName="Am/Af faktor – könnyű szerkezet" />
+      <Parameter
+        Name="RcModel.CouplingFactor.Am_Af.Medium"
+        Value="2.5"
+        Unit="m2/m2"
+        Source="ISO 52016-1:2017 Table 12"
+        DisplayName="Am/Af faktor – közepes szerkezet" />
+      <Parameter
+        Name="RcModel.CouplingFactor.Am_Af.Heavy"
+        Value="3.0"
+        Unit="m2/m2"
+        Source="ISO 52016-1:2017 Table 12"
+        DisplayName="Am/Af faktor – nehéz szerkezet" />
+      <Parameter
+        Name="RcModel.CouplingFactor.Am_Af.VeryHeavy"
+        Value="3.5"
+        Unit="m2/m2"
+        Source="ISO 52016-1:2017 Table 12"
+        DisplayName="Am/Af faktor – nagyon nehéz szerkezet" />
+
+    </Parameters>
+  </RuleSet>
+
+</EngineeringRules>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EngineeringData Id="Functions.Building" Version="1.0" SchemaVersion="1.0" DataType="FunctionCatalog" Country="HU" DisplayName="Épületfunkciók" ValidFrom="2026-07-15">
+  <Dependencies />
+  <BuildingFunctions>
+    <Function Id="DetachedHouse" DisplayName="Családi ház" Category="Residential" />
+    <Function Id="ApartmentBuilding" DisplayName="Társasház" Category="Residential" />
+    <Function Id="StudentResidence" DisplayName="Kollégium" Category="Residential" />
+    <Function Id="ElderlyResidence" DisplayName="Idősek otthona" Category="Healthcare" />
+    <Function Id="Nursery" DisplayName="Bölcsőde" Category="Childcare" />
+    <Function Id="Kindergarten" DisplayName="Óvoda" Category="Childcare" />
+    <Function Id="School" DisplayName="Iskola" Category="Education" />
+    <Function Id="University" DisplayName="Felsőoktatási épület" Category="Education" />
+    <Function Id="Office" DisplayName="Irodaépület" Category="Office" />
+    <Function Id="RetailShop" DisplayName="Üzlet" Category="Retail" />
+    <Function Id="Supermarket" DisplayName="Élelmiszer-áruház" Category="Retail" />
+    <Function Id="Hotel" DisplayName="Szálloda" Category="Accommodation" />
+    <Function Id="Restaurant" DisplayName="Étterem" Category="Hospitality" />
+    <Function Id="CommercialKitchen" DisplayName="Nagykonyha" Category="Hospitality" HasSpecialTechnology="true" />
+    <Function Id="MedicalPractice" DisplayName="Orvosi rendelő" Category="Healthcare" />
+    <Function Id="Hospital" DisplayName="Kórház" Category="Healthcare" HasSpecialTechnology="true" />
+    <Function Id="SportsHall" DisplayName="Sportcsarnok" Category="Sports" />
+    <Function Id="SwimmingPool" DisplayName="Uszoda" Category="Sports" HasSpecialTechnology="true" />
+    <Function Id="IndustrialHall" DisplayName="Ipari csarnok" Category="Industrial" HasSpecialTechnology="true" />
+    <Function Id="Warehouse" DisplayName="Raktár" Category="Storage" />
+  </BuildingFunctions>
+</EngineeringData>

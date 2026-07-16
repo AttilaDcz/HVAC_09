@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringData Id="Catalog.Openings" Version="1.0" SchemaVersion="1.0" DataType="Catalog" Country="HU" DisplayName="Nyílászáró-katalógus" ValidFrom="2026-01-01">
+  <Dependencies />
+  <Openings>
+    <Opening Id="Window.Modern.PVC.Triple" DisplayName="Korszerű műanyag ablak, háromrétegű üvegezéssel" Type="Window" UValue="0.90" GValue="0.50" />
+    <Opening Id="Window.Modern.Wood.Triple" DisplayName="Korszerű fa ablak, háromrétegű üvegezéssel" Type="Window" UValue="1.00" GValue="0.52" />
+    <Opening Id="Window.Old.Double" DisplayName="Régi kapcsolt gerébtokos ablak" Type="Window" UValue="3.50" GValue="0.65" />
+    <Opening Id="Window.Panel.Wood.Double" DisplayName="70-es évekbeli szabványos panel ablak" Type="Window" UValue="2.80" GValue="0.72" />
+    <Opening Id="Door.Entrance.Insulated" DisplayName="Hőszigetelt bejárati ajtó" Type="EntranceDoor" UValue="1.30" />
+    <Opening Id="Door.Entrance.Wood" DisplayName="Tömör fa külső ajtó" Type="EntranceDoor" UValue="1.40" />
+    <Opening Id="Door.Entrance.Glazed.Legacy" DisplayName="Régi üvegezett bejárati ajtó" Type="EntranceDoor" UValue="2.20" GValue="0.60" />
+    <Opening Id="Door.Terrace.Glazed" DisplayName="Üvegezett teraszajtó" Type="TerraceDoor" UValue="1.10" GValue="0.50" />
+    <Opening Id="Gate.Garage.Insulated" DisplayName="Hőszigetelt garázskapu" Type="GarageGate" UValue="1.50" />
+    <Opening Id="Gate.Industrial.Panel" DisplayName="Hőszigetelt ipari kapu" Type="IndustrialGate" UValue="1.80" />
+  </Openings>
+  <Glazings>
+    <Glazing Id="Glazing.Triple" DisplayName="Korszerű 3-rétegű (Ug=0.60, g=0.50)" Ug="0.60" SolarTransmittance="0.50" PaneCount="3" GasFill="Argon" CoatingType="Low-E" />
+    <Glazing Id="Glazing.Double" DisplayName="Korszerű 2-rétegű (Ug=1.10, g=0.60)" Ug="1.10" SolarTransmittance="0.60" PaneCount="2" GasFill="Argon" CoatingType="Low-E" />
+    <Glazing Id="Glazing.LegacyDouble" DisplayName="Régi 2-rétegű hőszigetelő (Ug=2.80, g=0.70)" Ug="2.80" SolarTransmittance="0.70" PaneCount="2" GasFill="Air" CoatingType="None" />
+    <Glazing Id="Glazing.Single" DisplayName="Régi 1-rétegű síküveg (Ug=5.80, g=0.85)" Ug="5.80" SolarTransmittance="0.85" PaneCount="1" GasFill="None" CoatingType="None" />
+  </Glazings>
+  <Frames>
+    <Frame Id="Frame.Pvc.Modern" DisplayName="Korszerű 5-6 kamrás PVC keret (Uf=1.20)" Uf="1.20" MaterialKind="Pvc" ProfileDepth="0.076" ChamberCount="5" DefaultWidth="0.080" />
+    <Frame Id="Frame.Wood.Modern" DisplayName="Korszerű hőszigetelt fa keret (Uf=1.10)" Uf="1.10" MaterialKind="Wood" ProfileDepth="0.078" DefaultWidth="0.080" />
+    <Frame Id="Frame.Wood.Legacy" DisplayName="Régi kapcsolt gerébtokos fa keret (Uf=2.20)" Uf="2.20" MaterialKind="Wood" ProfileDepth="0.120" DefaultWidth="0.110" />
+    <Frame Id="Frame.Alu.Legacy" DisplayName="Hőhidas alumínium keret (Uf=3.50)" Uf="3.50" MaterialKind="Aluminium" ProfileDepth="0.060" DefaultWidth="0.060" />
+  </Frames>
+  <Spacers>
+    <Spacer Id="Spacer.WarmEdge" DisplayName="Korszerű melegperem (Warm Edge, Ψg=0.04)" Psi="0.04" SpacerType="WarmEdge" />
+    <Spacer Id="Spacer.Aluminium" DisplayName="Hagyományos alumínium távtartó (Ψg=0.07)" Psi="0.07" SpacerType="Aluminium" />
+  </Spacers>
+</EngineeringData>

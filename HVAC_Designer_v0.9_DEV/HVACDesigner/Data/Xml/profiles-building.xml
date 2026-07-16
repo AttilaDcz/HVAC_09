@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EngineeringData Id="Profiles.Building" Version="2.0" SchemaVersion="1.0" DataType="ProfileCatalog" Country="HU" DisplayName="Épület- és használati profilok" ValidFrom="2026-07-15">
+  <Dependencies>
+    <Dependency Id="Functions.Building" MinVersion="1.0" />
+  </Dependencies>
+  <Profiles>
+    <Profile Id="Residential.LowDensity" DisplayName="Családi ház" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerDwelling" DisplayName="Alapértelmezett lakószám lakásonként" Value="3.0" Unit="person/dwelling" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="110" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="40" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="7.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.35" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Thermal">
+        <Value Id="IndoorTemperatureHeating" DisplayName="Tervezési belső hőmérséklet fűtéskor" Value="20" Unit="degC" Source="EN 12831-1:2017, ÉKM 9/2023" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="IndoorTemperatureCooling" DisplayName="Tervezési belső hőmérséklet hűtéskor" Value="26" Unit="degC" Source="EN 16798-1:2019, CIBSE Guide A" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SetbackTemperature" DisplayName="Visszavételi hőmérséklet (éjszakai/hétvégi)" Value="15" Unit="degC" Source="EN 12831-1:2017" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SensibleHeatPerPerson" DisplayName="Érzékelhető hőleadás személyenként" Value="75" Unit="W/person" Source="EN 16798-1:2019 Table C.4" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LatentHeatPerPerson" DisplayName="Látens hőleadás személyenként" Value="55" Unit="W/person" Source="EN 16798-1:2019 Table C.4" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LightingPowerDensity" DisplayName="Fajlagos megvilágítási teljesítmény" Value="4" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="EquipmentPowerDensity" DisplayName="Fajlagos berendezési teljesítmény" Value="4" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OccupancyConcurrencyFactor" DisplayName="Jelenlét egyidejűségi tényező" Value="1.00" Unit="fraction" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Residential.MultiApartment" DisplayName="Társasház" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerDwelling" DisplayName="Alapértelmezett lakószám lakásonként" Value="2.5" Unit="person/dwelling" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="105" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="35" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="7.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.35" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Thermal">
+        <Value Id="IndoorTemperatureHeating" DisplayName="Tervezési belső hőmérséklet fűtéskor" Value="20" Unit="degC" Source="EN 12831-1:2017" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="IndoorTemperatureCooling" DisplayName="Tervezési belső hőmérséklet hűtéskor" Value="26" Unit="degC" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SetbackTemperature" DisplayName="Visszavételi hőmérséklet" Value="15" Unit="degC" Source="EN 12831-1:2017" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SensibleHeatPerPerson" DisplayName="Érzékelhető hőleadás személyenként" Value="75" Unit="W/person" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LatentHeatPerPerson" DisplayName="Látens hőleadás személyenként" Value="55" Unit="W/person" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LightingPowerDensity" DisplayName="Fajlagos megvilágítási teljesítmény" Value="4" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="EquipmentPowerDensity" DisplayName="Fajlagos berendezési teljesítmény" Value="4" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OccupancyConcurrencyFactor" DisplayName="Jelenlét egyidejűségi tényező" Value="1.00" Unit="fraction" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Residential.StudentResidence" DisplayName="Kollégium" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerBed" DisplayName="Alapértelmezett lakószám férőhelyenként" Value="1.0" Unit="person/bed" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="100" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="30" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="8.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.4" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Thermal">
+        <Value Id="IndoorTemperatureHeating" DisplayName="Tervezési belső hőmérséklet fűtéskor" Value="20" Unit="degC" Source="EN 12831-1:2017" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="IndoorTemperatureCooling" DisplayName="Tervezési belső hőmérséklet hűtéskor" Value="24" Unit="degC" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SetbackTemperature" DisplayName="Visszavételi hőmérséklet" Value="16" Unit="degC" Source="EN 12831-1:2017" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="SensibleHeatPerPerson" DisplayName="Érzékelhető hőleadás személyenként" Value="75" Unit="W/person" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LatentHeatPerPerson" DisplayName="Látens hőleadás személyenként" Value="55" Unit="W/person" Source="EN 16798-1:2019" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="LightingPowerDensity" DisplayName="Fajlagos megvilágítási teljesítmény" Value="4" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="EquipmentPowerDensity" DisplayName="Fajlagos berendezési teljesítmény" Value="3" Unit="W/m2" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OccupancyConcurrencyFactor" DisplayName="Jelenlét egyidejűségi tényező" Value="1.00" Unit="fraction" Source="Engineering default" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Healthcare.ElderlyResidence" DisplayName="Idősek otthona" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerBed" DisplayName="Lakószám férőhelyenként" Value="1.0" Unit="person/bed" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerBed" DisplayName="Napi ivóvízigény férőhelyenként" Value="150" Unit="L/(bed·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerBed" DisplayName="Napi melegvíz-igény főrőhelyenként" Value="35" Unit="L/(bed·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Childcare.Nursery" DisplayName="Bölcsőde" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.12" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="50" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="15" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="8.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="10" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Childcare.Kindergarten" DisplayName="Óvoda" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.1" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="40" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="15" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="8.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="10" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Education.School" DisplayName="Iskola" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.08" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="25" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="5" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="8.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="10" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Education.University" DisplayName="Egyetem / Főiskola" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.06" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="25" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="5" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="12" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Office.General" DisplayName="Irodaépület" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.1" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="25" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="5" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="10" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Retail.Shop" DisplayName="Üzlet" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.08" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="15" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="2" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.7" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="12" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Retail.Supermarket" DisplayName="Élelmiszer-áruház" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési létszámsűrűség" Value="0.1" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="20" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="2" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.7" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="14" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Accommodation.Hotel" DisplayName="Szálloda" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerRoom" DisplayName="Alapértelmezett vendégszám szobánként" Value="2.0" Unit="person/room" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerGuest" DisplayName="Napi ivóvízigény vendégenként" Value="180" Unit="L/(guest·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerGuest" DisplayName="Napi melegvíz-igény vendégenként" Value="50" Unit="L/(guest·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="8.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.5" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Hospitality.Restaurant" DisplayName="Étterem" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerSeat" DisplayName="Tervezési vendégszám ülőhelyenként" Value="1.0" Unit="person/seat" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerMeal" DisplayName="Napi ivóvízigény adagonként" Value="15" Unit="L/(meal·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerMeal" DisplayName="Napi melegvíz-igény adagonként" Value="8" Unit="L/(meal·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="12.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.8" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="14" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Hospitality.CommercialKitchen" DisplayName="Nagykonyha" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési dolgozói létszámsűrűség" Value="0.05" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerMeal" DisplayName="Napi ivóvízigény adagonként" Value="20" Unit="L/(meal·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerMeal" DisplayName="Napi melegvíz-igény adagonként" Value="10" Unit="L/(meal·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="VentilationMethod" DisplayName="Légtechnikai módszer" Value="technology-specific" Unit="method" Source="EngineeringDefault" RequirementLevel="Required" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="14" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Healthcare.MedicalPractice" DisplayName="Orvosi rendelő" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési egyidejű létszámsűrűség" Value="0.08" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="25" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="5" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.6" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="10" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Healthcare.Hospital" DisplayName="Kórház" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerBed" DisplayName="Beteglétszám ágyanként" Value="1.0" Unit="person/bed" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerBed" DisplayName="Napi ivóvízigény ágyanként" Value="300" Unit="L/(bed·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerBed" DisplayName="Napi melegvíz-igény ágyanként" Value="60" Unit="L/(bed·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="VentilationMethod" DisplayName="Légtechnikai módszer" Value="room-specific" Unit="method" Source="EngineeringDefault" RequirementLevel="Required" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="24" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Sports.Hall" DisplayName="Sportcsarnok" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési egyidejű létszámsűrűség" Value="0.1" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerUser" DisplayName="Napi ivóvízigény használónként" Value="40" Unit="L/(user·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerUser" DisplayName="Napi melegvíz-igény használónként" Value="20" Unit="L/(user·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="12.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.8" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="12" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Sports.SwimmingPool" DisplayName="Uszoda" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési egyidejű létszámsűrűség" Value="0.08" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerUser" DisplayName="Napi ivóvízigény használónként" Value="60" Unit="L/(user·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerUser" DisplayName="Napi melegvíz-igény használónként" Value="30" Unit="L/(user·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="VentilationMethod" DisplayName="Légtechnikai módszer" Value="humidity-balance" Unit="method" Source="EngineeringDefault" RequirementLevel="Required" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="14" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Industrial.General" DisplayName="Ipari csarnok" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési dolgozói létszámsűrűség" Value="0.03" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="45" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="20" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="VentilationMethod" DisplayName="Légtechnikai módszer" Value="technology-specific" Unit="method" Source="EngineeringDefault" RequirementLevel="Required" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="16" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+    <Profile Id="Storage.General" DisplayName="Raktár" DataStatus="EngineeringDefault">
+      <Section Name="Occupancy">
+        <Value Id="DefaultPersonsPerArea" DisplayName="Tervezési dolgozói létszámsűrűség" Value="0.01" Unit="person/m²" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Water">
+        <Value Id="DailyWaterPerPerson" DisplayName="Napi ivóvízigény személyenként" Value="25" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="DailyHotWaterPerPerson" DisplayName="Napi melegvíz-igény személyenként" Value="10" Unit="L/(person·day)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="Air">
+        <Value Id="OutdoorAirPerPerson" DisplayName="Külső levegő személyenként" Value="10.0" Unit="L/(s·person)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+        <Value Id="OutdoorAirPerArea" DisplayName="Külső levegő alapterületre vetítve" Value="0.3" Unit="L/(s·m²)" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+      <Section Name="OperatingSchedule">
+        <Value Id="OccupiedHoursPerDay" DisplayName="Napi használati idő" Value="12" Unit="h/day" Source="EngineeringDefault" RequirementLevel="Default" DataStatus="MvpReviewed" />
+      </Section>
+    </Profile>
+  </Profiles>
+</EngineeringData>

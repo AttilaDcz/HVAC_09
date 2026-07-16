@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  rules-building-physics.xml
+  Épületfizikai módszerparaméterek.
+
+  Tartalom:
+  - Felületi hőellenállások (Rsi, Rse) ISO 6946:2017 Table 1 alapján
+  - Hőhíd alapértelmezett kezelési paraméter (a konkrét ajánlások
+    a rules-heating-load.xml-ben vannak szerkezettípusonként)
+
+  Forrás: ISO 6946:2017, Table 1 (normative)
+
+  Hőáram irányok:
+    Horizontal – vízszintes hőáram (függőleges szerkezetek: külső fal, belső fal)
+    Upward     – felfelé irányuló hőáram (lapos tető, padlásfödém belülről nézve)
+    Downward   – lefelé irányuló hőáram (padló belülről nézve)
+
+  Rsi = belső felületi hőellenállás [m²K/W]
+  Rse = külső felületi hőellenállás [m²K/W]
+-->
+<EngineeringRules
+  Id="HU.BuildingPhysics"
+  Version="1.0"
+  SchemaVersion="1.0"
+  DataType="RulePackage"
+  Country="HU"
+  DisplayName="Épületfizikai módszerparaméterek (ISO 6946:2017)"
+  ValidFrom="2026-01-01">
+  <Dependencies />
+
+  <RuleSet
+    Id="HU.BuildingPhysics.SurfaceResistances"
+    Version="1.0"
+    Name="Felületi hőellenállások"
+    Discipline="BuildingPhysics"
+    MethodId="ISO6946SurfaceResistance">
+    <Applicability Jurisdiction="HU" ValidFrom="2026-01-01" />
+    <References>
+      <Reference
+        Designation="ISO 6946:2017"
+        Title="Building components and building elements — Thermal resistance and thermal transmittance — Calculation methods"
+        Edition="2017"
+        Status="Active"
+        Jurisdiction="International"
+        DocumentationText="Table 1: Design values of surface resistances for building components." />
+    </References>
+    <Parameters>
+
+      <!-- ───────────────────────────────────────────────
+           FÜGGŐLEGES SZERKEZETEK (vízszintes hőáram)
+           Alkalmazás: külső fal, belső fal, ajtó
+           ─────────────────────────────────────────────── -->
+      <Parameter
+        Name="Rsi.HeatFlow.Horizontal"
+        Value="0.13"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Belső felületi ellenállás (vízszintes hőáram)"
+        Notes="Alkalmazandó: külső fal, belső fal, ajtók." />
+      <Parameter
+        Name="Rse.HeatFlow.Horizontal"
+        Value="0.04"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Külső felületi ellenállás (vízszintes hőáram)" />
+
+      <!-- ───────────────────────────────────────────────
+           VÍZSZINTES SZERKEZETEK – HŐÁRAM FELFELÉ
+           Alkalmazás: lapos tető (belülről a hő felfelé áramlik)
+           ─────────────────────────────────────────────── -->
+      <Parameter
+        Name="Rsi.HeatFlow.Upward"
+        Value="0.10"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Belső felületi ellenállás (felfelé irányuló hőáram)"
+        Notes="Alkalmazandó: lapos tető, padlásfödém (belső oldal)." />
+      <Parameter
+        Name="Rse.HeatFlow.Upward"
+        Value="0.04"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Külső felületi ellenállás (felfelé irányuló hőáram)" />
+
+      <!-- ───────────────────────────────────────────────
+           VÍZSZINTES SZERKEZETEK – HŐÁRAM LEFELÉ
+           Alkalmazás: padló (talajon fekvő, pincefedlap)
+           ─────────────────────────────────────────────── -->
+      <Parameter
+        Name="Rsi.HeatFlow.Downward"
+        Value="0.17"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Belső felületi ellenállás (lefelé irányuló hőáram)"
+        Notes="Alkalmazandó: padlók (hőáram lefelé a hidegebb tér felé)." />
+      <Parameter
+        Name="Rse.HeatFlow.Downward"
+        Value="0.04"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Külső felületi ellenállás (lefelé irányuló hőáram)" />
+
+      <!-- ───────────────────────────────────────────────
+           BELSŐ ELVÁLASZTÓ SZERKEZETEK
+           (fűtött tereket elválasztó falak, fűtött→fűtött)
+           ─────────────────────────────────────────────── -->
+      <Parameter
+        Name="Rsi.Internal.Horizontal"
+        Value="0.13"
+        Unit="m2K/W"
+        Source="ISO6946:2017 Table 1"
+        DisplayName="Belső elválasztó fal – belső felületi ellenállás (mindkét oldal)" />
+
+      <!-- ───────────────────────────────────────────────
+           HŐHÍD ALAPPARAMÉTER
+           Az ajánlott pótlék szerkezettípusonként a rules-heating-load.xml-ben van.
+           ─────────────────────────────────────────────── -->
+      <Parameter
+        Name="ThermalBridge.DefaultAllowance"
+        Value="0.10"
+        Unit="fraction"
+        Source="ÉKM 9/2023, EN 12831"
+        DisplayName="Hőhíd-pótlék alapértéke (10%)"
+        Notes="Az ÉKM rendelet szerinti alapértelmezett pótlék transzmissziós hőveszteségre." />
+
+    </Parameters>
+  </RuleSet>
+
+</EngineeringRules>

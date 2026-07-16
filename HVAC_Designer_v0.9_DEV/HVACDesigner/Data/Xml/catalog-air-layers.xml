@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  catalog-air-layers.xml
+  Légréteg hőellenállások ISO 6946:2017 B. melléklet alapján.
+  Forrás: ISO 6946:2017, Annex B, Table B.1 és B.2
+
+  Az értékek (R [m²K/W]) a réteg tájolásától, a hőáram irányától,
+  a szellőzöttségi fokozattól és a vastagságtól függenek.
+
+  Vastagság-tartományok:
+    ISO 6946 szerint a hőellenállás a vastagság növekedésével nem nő
+    arányosan – 5 mm-től 300 mm-ig a tábla értékeit alkalmazzuk,
+    a megadott tartomány az adott sor érvényességi határát jelzi.
+
+  SzellőzöttségiSzint:
+    Unventilated   – nem szellőzött (zárt légréteg)
+    SlightlyVentilated – kis mértékben szellőzött (legfeljebb 500 mm² nyílás / m fal)
+    WellVentilated – szellőzött (500 mm²/m felett)
+
+  EmissivityClass:
+    High  – ε ≥ 0,8 (festetlenre, vakolatra tipikus)
+    Low   – ε < 0,2 (fényes fémfólia, alumínium stb.)
+
+  Megjegyzés: szellőzött légréteg esetén az Rse-t kell lecserélni
+  az adott ellenállásértékre az ISO 6946 §6.9.2 szerint.
+-->
+<EngineeringData
+  Id="Catalog.AirLayers"
+  Version="1.0"
+  SchemaVersion="1.0"
+  DataType="Catalog"
+  Country="HU"
+  DisplayName="Légréteg hőellenállás katalógus (ISO 6946:2017)"
+  ValidFrom="2026-01-01">
+  <Dependencies />
+
+  <AirLayers>
+
+    <!-- ===================================================
+         FÜGGŐLEGES LÉGRÉTEG (Vertical)
+         Vízszintes hőáram iránya (pl. külső fal)
+         ISO 6946:2017 Annex B, Table B.1
+         =================================================== -->
+
+    <!-- Nem szellőzött, normál emissziós felületek -->
+    <AirLayer
+      Id="AirLayer.Vertical.Unventilated.High"
+      DisplayName="Függőleges, nem szellőzött légréteg, ε≥0,8"
+      Orientation="Vertical"
+      HeatFlowDirection="Horizontal"
+      VentilationLevel="Unventilated"
+      EmissivityClass="High"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.18"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault"
+      Notes="Alkalmazható 5 mm-től 300 mm-ig; ε≥0.8 mindkét felületen." />
+
+    <!-- Nem szellőzött, alacsony emissziós felület (pl. fólia) -->
+    <AirLayer
+      Id="AirLayer.Vertical.Unventilated.Low"
+      DisplayName="Függőleges, nem szellőzött légréteg, ε&lt;0,2 (fólia)"
+      Orientation="Vertical"
+      HeatFlowDirection="Horizontal"
+      VentilationLevel="Unventilated"
+      EmissivityClass="Low"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.52"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault"
+      Notes="Legalább az egyik felület ε&lt;0.2 (pl. Al-fólia, hőtükör)." />
+
+    <!-- Kis mértékben szellőzött -->
+    <AirLayer
+      Id="AirLayer.Vertical.SlightlyVentilated"
+      DisplayName="Függőleges, kis mértékben szellőzött légréteg"
+      Orientation="Vertical"
+      HeatFlowDirection="Horizontal"
+      VentilationLevel="SlightlyVentilated"
+      EmissivityClass="High"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.09"
+      Unit="m2K/W"
+      Source="ISO6946:2017 §6.9.2"
+      DataStatus="EngineeringDefault"
+      Notes="500 mm² nyílás/m fal alatt. Rse-vel kiegészítve alkalmazandó." />
+
+    <!-- ===================================================
+         VÍZSZINTES LÉGRÉTEG, HŐÁRAM FELFELÉ (pl. lapos tető)
+         ISO 6946:2017 Annex B, Table B.1
+         =================================================== -->
+
+    <AirLayer
+      Id="AirLayer.HorizontalUp.Unventilated.High"
+      DisplayName="Vízszintes, hőáram felfelé, nem szellőzött, ε≥0,8 (pl. lapos tető)"
+      Orientation="Horizontal"
+      HeatFlowDirection="Upward"
+      VentilationLevel="Unventilated"
+      EmissivityClass="High"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.16"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault"
+      Notes="Felfelé irányuló konvekció csökkenti a hőellenállást a függőleges esethez képest." />
+
+    <AirLayer
+      Id="AirLayer.HorizontalUp.Unventilated.Low"
+      DisplayName="Vízszintes, hőáram felfelé, nem szellőzött, ε&lt;0,2 (fólia)"
+      Orientation="Horizontal"
+      HeatFlowDirection="Upward"
+      VentilationLevel="Unventilated"
+      EmissivityClass="Low"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.37"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault" />
+
+    <!-- ===================================================
+         VÍZSZINTES LÉGRÉTEG, HŐÁRAM LEFELÉ (pl. padló felett)
+         ISO 6946:2017 Annex B, Table B.1
+         =================================================== -->
+
+    <AirLayer
+      Id="AirLayer.HorizontalDown.Unventilated.High"
+      DisplayName="Vízszintes, hőáram lefelé, nem szellőzött, ε≥0,8 (pl. padló alatti légréteg)"
+      Orientation="Horizontal"
+      HeatFlowDirection="Downward"
+      VentilationLevel="Unventilated"
+      EmissivityClass="High"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.21"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault"
+      Notes="Lefelé irányuló hőáram esetén csökkent a konvektív hatás; magasabb ellenállás." />
+
+    <AirLayer
+      Id="AirLayer.HorizontalDown.Unventilated.Low"
+      DisplayName="Vízszintes, hőáram lefelé, nem szellőzött, ε&lt;0,2 (fólia)"
+      Orientation="Horizontal"
+      HeatFlowDirection="Downward"
+      VentilationLevel="Unventilated"
+      EmissivityClass="Low"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="300"
+      ThermalResistance="0.62"
+      Unit="m2K/W"
+      Source="ISO6946:2017 Annex B Table B.1"
+      DataStatus="EngineeringDefault" />
+
+    <!-- ===================================================
+         SZELLŐZÖTT LÉGRÉTEG (WellVentilated)
+         ISO 6946:2017 §6.9.2 – erősen szellőzött légréteg esetén
+         az Rse értékét kell a réteg hőellenállásának tekinteni.
+         =================================================== -->
+
+    <AirLayer
+      Id="AirLayer.WellVentilated"
+      DisplayName="Erősen szellőzött légréteg (pl. szellőzött homlokzat mögötti rés)"
+      Orientation="Unspecified"
+      HeatFlowDirection="Unspecified"
+      VentilationLevel="WellVentilated"
+      EmissivityClass="High"
+      ThicknessMinMm="0"
+      ThicknessMaxMm="500"
+      ThermalResistance="0.13"
+      Unit="m2K/W"
+      Source="ISO6946:2017 §6.9.2"
+      DataStatus="EngineeringDefault"
+      Notes="Szellőzött homlokzati rendszerekben (pl. természetes ventilációjú homlokzati burkolat) a teljes Rse értékét helyettesíti. Az Rse külső felületre vonatkozó érték." />
+
+  </AirLayers>
+</EngineeringData>

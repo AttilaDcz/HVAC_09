@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EngineeringRules Id="HU.TNM.Legacy" Version="2023-10-31" SchemaVersion="1.0" DataType="RulePackage" Country="HU" DisplayName="TNM legacy szabálycsomag" ValidFrom="2023-10-31">
+  <Dependencies>
+    <Dependency Id="Profiles.Building" MinVersion="1.0" />
+  </Dependencies>
+  <RuleSet Id="HU.TNM.Legacy.Envelope" Version="2023-10-31" Name="TNM legacy szerkezeti követelmények" Discipline="BuildingPhysics" MethodId="LegacyEnvelopeRequirementAssessment">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="ExternalWall.MaximumU" Value="0.24" />
+      <Parameter Name="FlatRoof.MaximumU" Value="0.17" />
+      <Parameter Name="FloorOnGround.MaximumU" Value="0.30" />
+      <Parameter Name="BasementFloor.MaximumU" Value="0.26" />
+      <Parameter Name="Window.MaximumU" Value="1.15" />
+      <Parameter Name="EntranceDoor.MaximumU" Value="1.45" />
+      <Parameter Name="IndustrialGate.MaximumU" Value="2.00" />
+      <Parameter Name="SeparatingWall.MaximumU" Value="0.40" />
+
+      <!-- TNM Rendelet szerinti Hőhíd-korrekciós (Chi / Pótlék) értékek -->
+      <!-- Külső fal: megszakítatlan külső vagy szerkezeten belüli hőszigeteléssel -->
+      <Parameter Name="ThermalBridge.ExternalWall.Continuous.Weak" Value="0.15" />
+      <Parameter Name="ThermalBridge.ExternalWall.Continuous.Medium" Value="0.20" />
+      <Parameter Name="ThermalBridge.ExternalWall.Continuous.Strong" Value="0.30" />
+      
+      <!-- Egyéb külső fal -->
+      <Parameter Name="ThermalBridge.ExternalWall.Other.Weak" Value="0.25" />
+      <Parameter Name="ThermalBridge.ExternalWall.Other.Medium" Value="0.30" />
+      <Parameter Name="ThermalBridge.ExternalWall.Other.Strong" Value="0.40" />
+      
+      <!-- Lapostető -->
+      <Parameter Name="ThermalBridge.Roof.Flat.Weak" Value="0.10" />
+      <Parameter Name="ThermalBridge.Roof.Flat.Medium" Value="0.15" />
+      <Parameter Name="ThermalBridge.Roof.Flat.Strong" Value="0.20" />
+      
+      <!-- Beépített tetőteret határoló szerkezet -->
+      <Parameter Name="ThermalBridge.Roof.Attic.Weak" Value="0.10" />
+      <Parameter Name="ThermalBridge.Roof.Attic.Medium" Value="0.15" />
+      <Parameter Name="ThermalBridge.Roof.Attic.Strong" Value="0.20" />
+      
+      <!-- Padlásfödém (egyszerűsített) -->
+      <Parameter Name="ThermalBridge.Ceiling.Attic.Default" Value="0.10" />
+      
+      <!-- Árkád vagy áthajtó feletti födém -->
+      <Parameter Name="ThermalBridge.Ceiling.Arcade.Default" Value="0.10" />
+      
+      <!-- Pincefödém -->
+      <Parameter Name="ThermalBridge.Ceiling.Basement.InternalInsulation" Value="0.20" />
+      <Parameter Name="ThermalBridge.Ceiling.Basement.ExternalInsulation" Value="0.10" />
+      
+      <!-- Fűtött-fűtetlen tér közötti fal (vagy fűtött pincét határoló kívül szigetelt fal) -->
+      <Parameter Name="ThermalBridge.Wall.BetweenHeatedUnheated.Default" Value="0.05" />
+    </Parameters>
+  </RuleSet>
+  <RuleSet Id="HU.TNM.Legacy.ReferenceSystems" Version="2023-10-31" Name="TNM legacy referencia-rendszer alapértékek" Discipline="BuildingEnergy" MethodId="LegacyReferenceSystemDefaults">
+    <Applicability Jurisdiction="HU" />
+    <Parameters>
+      <Parameter Name="Ventilation.ReferenceDefaultsAvailable" Value="true" />
+    </Parameters>
+  </RuleSet>
+  <DesignMethod Id="Hungary.TNM.Legacy" Version="2023-10-31" Name="Magyarország – TNM legacy" Jurisdiction="HU" IsLegacy="true">
+    <UseRuleSet Key="HU.TNM.Legacy.Envelope@2023-10-31" />
+    <UseRuleSet Key="HU.TNM.Legacy.ReferenceSystems@2023-10-31" />
+  </DesignMethod>
+</EngineeringRules>
